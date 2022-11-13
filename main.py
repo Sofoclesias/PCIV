@@ -12,5 +12,10 @@ def hermanos_():
     print("hola")
 hermanos_()
 print("holassssss")
+
 print("Fuente? De cebiche")
+
+print("uwu")
 x = int("45615161")
+
+print("Wenas")
