@@ -1,3 +1,5 @@
 print("hola mundo")
 print("En efecto")
-print("Le sabes")
+print("no le sabes")
+print("ssssssssssss")
+print("no se")
