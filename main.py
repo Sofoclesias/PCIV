@@ -1,3 +1,5 @@
+from lecturacsv import register, login_cliente, login_admin
+
 print('  BIENVENIDO  '.center(50, '#'))
 while True:
     op = int(input('''
@@ -9,11 +11,11 @@ while True:
     Selecciona tu opción: '''))
     print('\n', '#' * 50)
     if op == 1:
-        print('Registro')
+        register()
     elif op == 2:
-        print('''Portal de compras''')
+        login_cliente()
     elif op == 3:
-        print('''Portal de administradores''')
+        login_admin()
     elif op == 4:
         break
     else:
