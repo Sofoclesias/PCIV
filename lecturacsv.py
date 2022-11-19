@@ -114,7 +114,7 @@ def login_cliente():
 
     print('\n', nombre.center(50), '\n')
 
-    print("import ventas")
+    import clientes
 
 
 def login_admin():

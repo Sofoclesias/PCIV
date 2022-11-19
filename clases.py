@@ -42,7 +42,7 @@ class Pizzero(Personas):
         return self.password
 
     def setPassword(self, refx):
-        self.password = contx
+        self.password = refx
 
 
 class Cliente(Personas):
@@ -57,3 +57,5 @@ class Cliente(Personas):
 
     def setRef(self, refx):
         self.ref = refx
+
+    # def actualizarMetodoPago
