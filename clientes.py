@@ -1,3 +1,6 @@
+
 import clases as cl
 
-x = cl.Cliente()
+
+def menu_clientes():
+    print("hola")
