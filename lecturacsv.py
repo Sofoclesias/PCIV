@@ -202,6 +202,6 @@ prod = excludecsvformat(copycsv(csvpizzas))
 extras = excludecsvformat(copycsv(csvextras))
 
 for i in range(len(prod)):
-    prod[i] = [int(prod[i][0]), prod[i][1], float(prod[i][2])]
+    prod[i] = [int(prod[i][0]), prod[i][1], float(prod[i][2]), int(prod[i][3])]
 for i in range(len(extras)):
-    extras[i] = [int(extras[i][0]), extras[i][1], float(extras[i][2])]
+    extras[i] = [int(extras[i][0]), extras[i][1], float(extras[i][2]), int(extras[i][3])]

@@ -1,27 +1,55 @@
-import lecturacsv as csv
+
+from lecturacsv import *
 
 
-def menu_admin(clientela):
+def menu_admin():
     while True:
         op0 = int(input('''
-        1. Gestionar pizzas
-        2. Gestionar pedidos
+        1. Gestionar pedidos
+        2. Gestionar existencias
         3. Gestionar cuentas
         4. Salir
 
         Selecciona tu opción: '''))
         print('\n', '#' * 50)
         if op0 == 1:
+            print("Pedidos")
+
+        elif op0 == 2:
             while True:
                 op1 = int(input('''
-                                1. Visualizar clientes
-                                2. Eliminar clientes
+                                1. Pizzas
+                                2. Extras
                                 3. Salir
 
                                 Selecciona tu opción: '''))
                 print('\n', '#' * 50)
-        elif op0 == 2:
-            print("Pedidos")
+                if op1 == 1:
+                    print("Pizzas")
+                if op1 == 2:
+                    op2 = int(input('''
+                                                    1. Visualizar extras
+                                                    2. Añadir extras
+                                                    3. Eliminar extras
+                                                    4. Salir
+
+                                                    Selecciona tu opción: '''))
+
+                    if op2 == 1:
+                        print("Visualizando todos los extras.")
+                        ex = sorted(extras, key=lambda x: (x[2], x[3]))
+                        print("{0:<20s}{1:>20s}{2:>20s}".format("DNI", "Nombres", "Apellidos"))
+                    elif op2 == 2:
+
+                    elif op2 == 3:
+
+                    elif op2 == 4:
+                        break
+                    else:
+                        print("Ingrese una opción válida.")
+                if op1 == 3:
+                    break
+
         elif op0 == 3:
             while True:
                 op1 = int(input('''
@@ -106,7 +134,7 @@ def menu_admin(clientela):
                                                                                                   x, clientela[i][8]))
                                 else:
                                     continue
-                        elif op2 == 3:
+                        elif op2 == 4:
                             break
                         else:
                             print(' Ingresa una opcion del menú')
@@ -121,3 +149,6 @@ def menu_admin(clientela):
             break
         else:
             print(' Ingresa una opcion del menú')
+
+
+menu_admin()
