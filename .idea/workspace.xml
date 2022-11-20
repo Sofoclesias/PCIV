@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="445d950a-c74e-4048-a83b-3c4bc20affe0" name="Changes" comment="Tarjetas2">
+    <list default="true" id="445d950a-c74e-4048-a83b-3c4bc20affe0" name="Changes" comment="Tarjetas3">
       <change beforePath="$PROJECT_DIR$/Tarjetas.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tarjetas.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -233,7 +233,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668915434408</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Tarjetas3">
+      <created>1668915781637</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1668915781637</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -256,7 +263,8 @@
     <MESSAGE value="Menú de inicio - bosquejo" />
     <MESSAGE value="Tarjetas" />
     <MESSAGE value="Tarjetas2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tarjetas2" />
+    <MESSAGE value="Tarjetas3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tarjetas3" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
