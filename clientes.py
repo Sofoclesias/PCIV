@@ -10,14 +10,16 @@ def menu_clientes():
                 opcion = int(input("¿que desea realizar?\n"
                                    "1.actuaizar datos\n"
                                    "2.realizar un pedido\n"
-                                   "3.salir\n"))
+                                   "3.salir\n"
+                                   "\n"
+                                   "escriba una opción: "))
                 if str(opcion) in "123":
                     break
                 else:
                     print("escriba una opción correcta\n")
+                    pass
             except:
                 print("escriba una opción correcta\n")
-
                 pass
         if opcion == 3:
             break
@@ -46,3 +48,14 @@ def menu_clientes():
                         print(lec.clientela[2])
                         print(lec.usux)
                         print(lec.contx)
+
+
+def mostrar():
+    for i in range(len(lec.clientela)):
+        if lec.usux == lec.clientela[i][4] and lec.contx == lec.clientela[i][5]:
+            print("sus datos son: ")
+            for x in range(len(lec.clientela[i][4])):
+                print(lec.clientela[i][4])
+
+
+mostrar()
