@@ -15,7 +15,6 @@ def tarjetas():
             Tar.append(tarjeta)
             while True:
                 try:
-                    print("Tarjeta añadida")
                     print("**** **** **** ", str(tarjeta)[-4:])
                     print("¿Desea confirmar la tarjeta?")
                     print("1. Sí")
