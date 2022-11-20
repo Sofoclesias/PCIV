@@ -1,6 +1,6 @@
 import clases as cl
 import pickle, os
-from clientes import menu_clientes
+import clientes as clic
 from datetime import *
 
 
@@ -118,7 +118,7 @@ def login_cliente():
 
     print('\n', nombre.center(50), '\n')
 
-    menu_clientes()
+    clic.menu_clientes()
 
 
 def login_admin():
