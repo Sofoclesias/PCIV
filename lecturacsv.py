@@ -4,6 +4,50 @@ import clientes as clic
 from datetime import *
 
 
+def refPago():
+    while True:
+        while True:
+            try:
+                card = int(input("            Ingrese tarjeta de crédito: "))
+                yven = int(input("           Ingresar año de vencimiento: "))
+                mven = int(input("           Ingresar mes de vencimiento: "))
+                fven = date(yven, mven, 1)
+                cvv = int(input("           Ingresar CVV (máx 3 cifras): "))
+                if fven > datetime.today().date() and len(str(cvv)) == 3:
+                    break
+            except:
+                print("Ingrese datos de tarjetas válidos.")
+                pass
+
+        card = str(card)
+        cardx = [int(x) for x in card]
+        if cardx[0] == 4 and len(cardx) == 16:
+            card_type = "Visa"
+        elif cardx[0] == 5 and len(cardx) == 16:
+            card_type = "MasterCard"
+        elif cardx[0] == 3 and len(cardx) == 15:
+            card_type = "American Express"
+        else:
+            card_type = None
+
+        for i in range(2, len(cardx) + 1, 2):
+            n = cardx[-i] * 2
+            if n >= 10:
+                n, add = str(n), 0
+                for digit in n:
+                    add += int(digit)
+                n = add
+            cardx[-i] = n
+
+        if sum(cardx) % 10 == 0:
+            print("¡Tarjeta identificada y registrada satisfactoriamente!")
+            break
+        else:
+            print("La tarjeta NO es válida.")
+
+    return [card_type, card, fven, cvv]
+
+
 def register():
     def tiene_numeros(string):
         return any(char.isdigit() for char in string)
@@ -57,6 +101,17 @@ def register():
             pass
     ## CONTRASEÑA
     pasx = input('                Ingrese una contraseña: ')
+
+    ## MÉTODO DE PAGO
+    while True:
+        quest = input("¿Desea agregar una forma de pago fija? (y/n): ")
+        if quest == "y":
+            meth = refPago()
+            break
+        elif quest == "n":
+            meth = None
+            break
+
     ## REFERIDO
     flag = True
     while flag == True:
@@ -68,7 +123,7 @@ def register():
             for i in range(len(clientela)):
                 if ref == clientela[i][4]:
                     print("¡Cliente {} encontrado!".format(clientela[i][1]))
-                    clientela[i][6] = int(clientela[i][6]) + 1
+                    clientela[i][8] = int(clientela[i][8]) + 1
 
                     with open(csvclientes, 'r') as file:
                         data = file.readlines()
@@ -84,16 +139,17 @@ def register():
                     break
                 else:
                     print("No se ha encontrado al usuario. Inténtelo de nuevo.")
-        print("¡Cuenta creada satisfactoriamente!")
+    print("¡Cuenta creada satisfactoriamente!")
 
     ## Creación de la clase
-    x = cl.Cliente(dnix, nomx, apex, edx, usux, pasx)
-    clientela.append([dnix, nomx, apex, edx, usux, pasx])
+    x = cl.Cliente(dnix, nomx, apex, edx, usux, pasx, meth, [], 0)
+    clientela.append([dnix, nomx, apex, edx, usux, pasx, meth, [], 0])
 
     ## Agregar al csv
     baseclientes = open(csvclientes, 'a')
     baseclientes.write(
-        '{0},{1},{2},{3},{4},{5},0,\n'.format(x.DNI, x.nombres, x.apellidos, x.edad, x.usuario, x.contraseña))
+        '{0},{1},{2},{3},{4},{5},{6},{7},0,\n'.format(x.DNI, x.nombres, x.apellidos, x.edad, x.usuario, x.contraseña,
+                                                      x.metodoPago, []))
     baseclientes.close()
 
 
@@ -157,9 +213,12 @@ clientela = []
 clx = open(csvclientes, "r")
 for linea in clx:
     clientela.append(linea.split(","))
+
 clx.close()
+
 usux = ""
 contx = ""
+
 admin = []
 adx = open(csvadmin, "r")
 for linea in adx:

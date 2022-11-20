@@ -74,4 +74,3 @@ def realizarpedidos():
         for x in carritoext:
             print("{0:<25}{1:^25}".format(x[0], x[1]))
     print(" Precio total:", sum(precio))
-realizarpedidos()

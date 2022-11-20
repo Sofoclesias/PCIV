@@ -44,12 +44,12 @@ class Pizzero(Personas):
 
 
 class Cliente(Personas):
-    def __init__(self, dnix, nomx, apex, edx, usux, contx):
+    def __init__(self, dnix, nomx, apex, edx, usux, contx, meth, pedx, refx):
         super().__init__(dnix, nomx, apex, edx)
         self.usuario = usux
         self.contraseña = contx
-        self.ref = 0
-        self.numero_de_cuenta = None
+        self.metodoPago = pedx
+        self.ref = refx
 
     def getRef(self):
         return self.ref
