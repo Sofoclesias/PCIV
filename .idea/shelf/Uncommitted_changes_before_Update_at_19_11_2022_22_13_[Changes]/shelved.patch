@@ -1,0 +1,141 @@
+Index: clientes.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import clases as cl\r\nimport lecturacsv as lec\r\n\r\n\r\ndef menu_clientes():\r\n    while True:\r\n        while True:\r\n            try:\r\n\r\n                opcion = int(input(\"¿que desea realizar?\\n\"\r\n                                   \"1.actuaizar datos\\n\"\r\n                                   \"2.realizar un pedido\\n\"\r\n                                   \"3.salir\\n\"))\r\n                if str(opcion) in \"123\":\r\n                    break\r\n                else:\r\n                    print(\"escriba una opción correcta\\n\")\r\n            except:\r\n                print(\"escriba una opción correcta\\n\")\r\n\r\n                pass\r\n        if opcion == 3:\r\n            break\r\n        if opcion == 1:\r\n            while True:\r\n                while True:\r\n                    try:\r\n\r\n                        rpta = int(input(\"¿que desea hacer?\\n\"\r\n                                         \"1.cambiar metodo de pago\\n\"\r\n                                         \"2.cambiar DNI\\n\"\r\n                                         \"3.cambiar apellidos\\n\"\r\n                                         \"4.cambiar edad\\n\"\r\n                                         \"5.salir\\n\"))\r\n                        if str(opcion) in \"12345\":\r\n                            break\r\n                        else:\r\n                            print(\"escriba una opción correcta\\n\")\r\n                    except:\r\n                        print(\"escriba una opción correcta\\n\")\r\n\r\n                if rpta == 5:\r\n                    break\r\n                if rpta == 1:\r\n                    for i in range(len(lec.clientela)):\r\n                        print(lec.clientela[2])\r\n                        print(lec.usux)\r\n                        print(lec.contx)\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/clientes.py b/clientes.py
+--- a/clientes.py	(revision 3eb28dc5dcfd978ad7e6b13e1e72409e1dd26e02)
++++ b/clientes.py	(date 1668913896058)
+@@ -43,6 +43,7 @@
+                     break
+                 if rpta == 1:
+                     for i in range(len(lec.clientela)):
+-                        print(lec.clientela[2])
+-                        print(lec.usux)
+-                        print(lec.contx)
++                        #print(lec.clientela[2])
++                        #print(lec.usux)
++                        #print(lec.contx)
++                        tarjetas()
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" project-jdk-name=\"Python 3.10 (PCIV)\" project-jdk-type=\"Python SDK\" />\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 3eb28dc5dcfd978ad7e6b13e1e72409e1dd26e02)
++++ b/.idea/misc.xml	(date 1668913649285)
+@@ -1,4 +1,4 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.10 (PCIV)" project-jdk-type="Python SDK" />
++  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.10" project-jdk-type="Python SDK" />
+ </project>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"445d950a-c74e-4048-a83b-3c4bc20affe0\" name=\"Changes\" comment=\"actualizando cosas3\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Python Script\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2HVU6G6DI4fbesLsbvKEWHLyyRI\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"settings.editor.selected.configurable\" value=\"com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable\" />\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Python.probando\">\r\n    <configuration name=\"clientes\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"PCIV\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/clientes.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"lecturacsv\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"PCIV\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/lecturacsv.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"main\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"PCIV\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"C:\\Users\\HP SUPPORT\\PycharmProjects\\pythonProject\\venv\\Scripts\\python.exe\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"false\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/main.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"practicando lll\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"PCIV\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/practicando lll.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"probando\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"PCIV\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/probando.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Python.probando\" />\r\n        <item itemvalue=\"Python.practicando lll\" />\r\n        <item itemvalue=\"Python.main\" />\r\n        <item itemvalue=\"Python.clientes\" />\r\n        <item itemvalue=\"Python.lecturacsv\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"445d950a-c74e-4048-a83b-3c4bc20affe0\" name=\"Changes\" comment=\"\" />\r\n      <created>1668369568061</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1668369568061</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"llll\">\r\n      <created>1668371631935</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668371631935</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"última prueba de conexión\">\r\n      <created>1668372420184</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668372420184</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Menú de inicio - bosquejo\">\r\n      <created>1668723134495</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668723134495</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"actualizando cosas\">\r\n      <created>1668902798426</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668902798426</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"actualizando cosas2\">\r\n      <created>1668902992083</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668902992083</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"actualizando cosas2\">\r\n      <created>1668911571200</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668911571200</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"actualizando cosas3\">\r\n      <created>1668912723367</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668912723367</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"8\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"llll\" />\r\n    <MESSAGE value=\"última prueba de conexión\" />\r\n    <MESSAGE value=\"Menú de inicio - bosquejo\" />\r\n    <MESSAGE value=\"actualizando cosas\" />\r\n    <MESSAGE value=\"actualizando cosas2\" />\r\n    <MESSAGE value=\"actualizando cosas3\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"actualizando cosas3\" />\r\n    <option name=\"REFORMAT_BEFORE_PROJECT_COMMIT\" value=\"true\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" suspend=\"THREAD\" type=\"python-line\">\r\n          <url>file://$PROJECT_DIR$/../Desktop/PC IV/pruebas.py</url>\r\n          <option name=\"timeStamp\" value=\"1\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 3eb28dc5dcfd978ad7e6b13e1e72409e1dd26e02)
++++ b/.idea/workspace.xml	(date 1668914017177)
+@@ -1,8 +1,12 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ChangeListManager">
+-    <list default="true" id="445d950a-c74e-4048-a83b-3c4bc20affe0" name="Changes" comment="actualizando cosas3">
++    <list default="true" id="445d950a-c74e-4048-a83b-3c4bc20affe0" name="Changes" comment="">
++      <change afterPath="$PROJECT_DIR$/Tarjetas.py" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/clientes.py" beforeDir="false" afterPath="$PROJECT_DIR$/clientes.py" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/db/clientes.csv" beforeDir="false" afterPath="$PROJECT_DIR$/db/clientes.csv" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -31,7 +35,7 @@
+   <component name="PropertiesComponent">
+     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+   </component>
+-  <component name="RunManager" selected="Python.probando">
++  <component name="RunManager" selected="Python.practicando lll">
+     <configuration name="clientes" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+       <module name="PCIV" />
+       <option name="INTERPRETER_OPTIONS" value="" />
+@@ -139,8 +143,8 @@
+     </configuration>
+     <recent_temporary>
+       <list>
+-        <item itemvalue="Python.probando" />
+         <item itemvalue="Python.practicando lll" />
++        <item itemvalue="Python.probando" />
+         <item itemvalue="Python.main" />
+         <item itemvalue="Python.clientes" />
+         <item itemvalue="Python.lecturacsv" />
+@@ -198,14 +202,7 @@
+       <option name="project" value="LOCAL" />
+       <updated>1668911571200</updated>
+     </task>
+-    <task id="LOCAL-00007" summary="actualizando cosas3">
+-      <created>1668912723367</created>
+-      <option name="number" value="00007" />
+-      <option name="presentableId" value="LOCAL-00007" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1668912723367</updated>
+-    </task>
+-    <option name="localTasksCounter" value="8" />
++    <option name="localTasksCounter" value="7" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -225,8 +222,7 @@
+     <MESSAGE value="Menú de inicio - bosquejo" />
+     <MESSAGE value="actualizando cosas" />
+     <MESSAGE value="actualizando cosas2" />
+-    <MESSAGE value="actualizando cosas3" />
+-    <option name="LAST_COMMIT_MESSAGE" value="actualizando cosas3" />
++    <option name="LAST_COMMIT_MESSAGE" value="actualizando cosas2" />
+     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+   </component>
+   <component name="XDebuggerManager">
+Index: db/clientes.csv
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>76175412,Rodrigo Alonso,Bisetti Alcocer,19,mookielaka,2232   ,1,\r\n21457167,Yvkyonv Hrvtzv,Iozlaao Hrjvjly,91,frikitona ,hola123,0,\r\n1234567890,Alexander,Hhhh,19,axel,548,0,\r\n465513,Axels,Llll,20,axels,1234,0,\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/db/clientes.csv b/db/clientes.csv
+--- a/db/clientes.csv	(revision 3eb28dc5dcfd978ad7e6b13e1e72409e1dd26e02)
++++ b/db/clientes.csv	(date 1668913656524)
+@@ -2,3 +2,4 @@
+ 21457167,Yvkyonv Hrvtzv,Iozlaao Hrjvjly,91,frikitona ,hola123,0,
+ 1234567890,Alexander,Hhhh,19,axel,548,0,
+ 465513,Axels,Llll,20,axels,1234,0,
++74904254,Sebastian,Guevara,18,Sebas,pavilion24,0,
+Index: Tarjetas.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Tarjetas.py b/Tarjetas.py
+new file mode 100644
+--- /dev/null	(date 1668914000468)
++++ b/Tarjetas.py	(date 1668914000468)
+@@ -0,0 +1,8 @@
++T=[]
++def Tarjetas(tarjeta):
++    while True:
++        tarjeta = input("Ingrese los 16 caracteres de su tarjeta: ")
++        if len(tarjeta) = 16:
++            T.append(tarjeta)
++        else:
++            print("Ingrese un número válido")
+\ No newline at end of file
