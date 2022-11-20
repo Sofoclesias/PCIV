@@ -1,9 +1,10 @@
-import lecturacsv as lec
-import Pedidos as ped
+from lecturacsv import *
+from Pedidos import *
 
-numero_referido = lec.clientela[i][8]
-if numero_referido > 0:
-    ped.precio = ped.precio - 0.20
-
-else:
-    print("No cuenta con puntos de referido")
+for i in clientela:
+    numero_referido = clientela[i][8]
+    if numero_referido > 0:
+        precio = precio - 0.20
+        pass
+    else:
+        print("No cuenta con puntos de referido")
