@@ -5,12 +5,6 @@ from lecturacsv import *
 carritoprod = []
 carritoext = []
 precio = []
-prod = [[1, "Pizza americana", 24.90], [2, "Pizza hawaiana", 26.90], [3, "Pizza suprema", 29.90],
-        [4, "Pizza cuatro quesos", 28.90],
-        [5, "Pizza de pepperoni", 27.90]]
-extras = [[1, "tomate", 1.90], [2, "parmesano", 2.90], [3, "bbq", 3.90], [4, "anchoas", 5.90], [5, "piña", 4.90],
-          [6, "chorizo", 4.90], [7, "jamón", 4.90], [8, "bordes de queso", 5.90], [9, "pepperoni", 5.90],
-          [10, "champiñones", 6.90], [11, "salchicha", 7.90]]
 
 
 def realizarpedidos():
