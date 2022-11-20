@@ -4,6 +4,16 @@ import clientes as clic
 from datetime import *
 from administrativos import menu_admin
 
+
+def copycsv(db):
+    rows = []
+    dbx = open(db, "r")
+    for linea in dbx:
+        rows.append(linea.split(","))
+    dbx.close()
+    return rows
+
+
 def refPago():
     infocard = None
 
@@ -224,24 +234,19 @@ def actualizar(db, new):
     data.close()
 
 
-csvclientes = os.path.dirname(os.path.realpath(__file__)) + '\db\clientes.csv'
-csvadmin = os.path.dirname(os.path.realpath(__file__)) + '\db\ladmin.csv'
-
-clientela = []
-clx = open(csvclientes, "r")
-for linea in clx:
-    clientela.append(linea.split(","))
-
-for i in range(len(clientela)):
-    clientela[i][6] = clientela[i][6].split("|")
-
-clx.close()
-
 usux = ""
 contx = ""
 
-admin = []
-adx = open(csvadmin, "r")
-for linea in adx:
-    admin.append(linea.split(","))
-adx.close()
+csvclientes = os.path.dirname(os.path.realpath(__file__)) + '\db\clientes.csv'
+csvadmin = os.path.dirname(os.path.realpath(__file__)) + '\db\ladmin.csv'
+csvpizzas = os.path.dirname(os.path.realpath(__file__)) + '\db\pizzas.csv'
+csvextras = os.path.dirname(os.path.realpath(__file__)) + '\db\extras.csv'
+
+admin, clientela, prod, extras = copycsv(csvadmin), copycsv(csvclientes), copycsv(csvpizzas), copycsv(csvextras)
+
+for i in range(len(clientela)):
+    clientela[i][6] = clientela[i][6].split("|")
+for i in range(len(prod)):
+    prod[i] = [int(prod[i][0]), prod[i][1], float(prod[i][2])]
+for i in range(len(extras)):
+    extras[i] = [int(extras[i][0]), extras[i][1], float(extras[i][2])]
