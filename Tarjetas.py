@@ -1,4 +1,6 @@
 Tar = []
+
+
 def tarjetas():
     while True:
         while True:
