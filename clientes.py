@@ -6,6 +6,7 @@ def menu_clientes():
     while True:
         while True:
             try:
+                print(lec.clientela[2])
 
                 opcion = int(input("¿que desea realizar?\n"
                                    "1.actuaizar datos\n"
@@ -44,19 +45,4 @@ def menu_clientes():
                 if rpta == 5:
                     break
                 if rpta == 1:
-                    for i in range(len(lec.clientela)):
-                        # print(lec.clientela[2])
-                        # print(lec.usux)
-                        # print(lec.contx)
-                        tarjetas()
-
-
-def mostrar():
-    for i in range(len(lec.clientela)):
-        if lec.usux == lec.clientela[i][4] and lec.contx == lec.clientela[i][5]:
-            print("sus datos son: ")
-            for x in range(len(lec.clientela[i][4])):
-                print(lec.clientela[i][4])
-
-
-mostrar()
+                    pass
