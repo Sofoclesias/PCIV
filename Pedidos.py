@@ -54,7 +54,7 @@ def realizarpedidos():
                 print("\n")
                 if 0 <= opcext <= len(extras):
                     if opcext > 0:
-                        gramos = int(input("ingrese las unidades extras"))
+                        gramos = int(input("ingrese las unidades extras: "))
                         for i in extras:
                             if int(opcext) == i[0]:
                                 carritoext.append([i[1], "{} unidades".format(gramos)])
