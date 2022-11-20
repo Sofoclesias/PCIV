@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="445d950a-c74e-4048-a83b-3c4bc20affe0" name="Changes" comment="pedidos 13">
+    <list default="true" id="445d950a-c74e-4048-a83b-3c4bc20affe0" name="Changes" comment="Creada la función excludecsvformat para evadir los espacios en blanco generados por la normalización de columnas en csv">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pedidos.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pedidos.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/administrativos.py" beforeDir="false" afterPath="$PROJECT_DIR$/administrativos.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/clientes.csv" beforeDir="false" afterPath="$PROJECT_DIR$/db/clientes.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lecturacsv.py" beforeDir="false" afterPath="$PROJECT_DIR$/lecturacsv.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prueba max.py" beforeDir="false" afterPath="$PROJECT_DIR$/prueba max.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,7 +21,13 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="2setti" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -32,8 +41,8 @@
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.probando">
-    <configuration name="Pedidos" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.main">
+    <configuration name="administrativos" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PCIV" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -45,7 +54,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Pedidos.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/administrativos.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -54,7 +63,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Referidos" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="clientes" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PCIV" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -66,7 +75,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Referidos.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/clientes.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -75,7 +84,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Tarjetas" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="lecturacsv" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PCIV" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -87,7 +96,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Tarjetas.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lecturacsv.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -117,7 +126,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="probando" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="prueba max" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PCIV" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -129,7 +138,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/probando.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/prueba max.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -140,11 +149,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.probando" />
-        <item itemvalue="Python.Pedidos" />
         <item itemvalue="Python.main" />
-        <item itemvalue="Python.Referidos" />
-        <item itemvalue="Python.Tarjetas" />
+        <item itemvalue="Python.prueba max" />
+        <item itemvalue="Python.lecturacsv" />
+        <item itemvalue="Python.administrativos" />
+        <item itemvalue="Python.clientes" />
       </list>
     </recent_temporary>
   </component>
@@ -325,47 +334,47 @@
       <option name="project" value="LOCAL" />
       <updated>1668966311866</updated>
     </task>
-    <task id="LOCAL-00025" summary="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
-      <created>1668966661423</created>
+    <task id="LOCAL-00025" summary="arreglada la database(?)">
+      <created>1668967490069</created>
       <option name="number" value="00025" />
       <option name="presentableId" value="LOCAL-00025" />
       <option name="project" value="LOCAL" />
-      <updated>1668966661423</updated>
+      <updated>1668967490069</updated>
     </task>
-    <task id="LOCAL-00026" summary="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
-      <created>1668966714013</created>
+    <task id="LOCAL-00026" summary="xd">
+      <created>1668968727226</created>
       <option name="number" value="00026" />
       <option name="presentableId" value="LOCAL-00026" />
       <option name="project" value="LOCAL" />
-      <updated>1668966714013</updated>
+      <updated>1668968727226</updated>
     </task>
-    <task id="LOCAL-00027" summary="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
-      <created>1668978950332</created>
+    <task id="LOCAL-00027" summary="Arreglada la lista del método de pago para que sea separada en una lista de forma interna y que el formato de separación del csv sigan siendo comas">
+      <created>1668969431027</created>
       <option name="number" value="00027" />
       <option name="presentableId" value="LOCAL-00027" />
       <option name="project" value="LOCAL" />
-      <updated>1668978950332</updated>
+      <updated>1668969431027</updated>
     </task>
-    <task id="LOCAL-00028" summary="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
-      <created>1668978979681</created>
+    <task id="LOCAL-00028" summary="IT JUST WORKS">
+      <created>1668970869302</created>
       <option name="number" value="00028" />
       <option name="presentableId" value="LOCAL-00028" />
       <option name="project" value="LOCAL" />
-      <updated>1668978979681</updated>
+      <updated>1668970869302</updated>
     </task>
-    <task id="LOCAL-00029" summary="pedidos 13">
-      <created>1668979160058</created>
+    <task id="LOCAL-00029" summary="Creados extras.csv y pizzas.csv. Formato de pedidos.csv pendiente. Agregada función copycsv para copiar en listas los csvs.">
+      <created>1668974546478</created>
       <option name="number" value="00029" />
       <option name="presentableId" value="LOCAL-00029" />
       <option name="project" value="LOCAL" />
-      <updated>1668979160058</updated>
+      <updated>1668974546478</updated>
     </task>
-    <task id="LOCAL-00030" summary="pedidos 13">
-      <created>1668979255239</created>
+    <task id="LOCAL-00030" summary="Creada la función excludecsvformat para evadir los espacios en blanco generados por la normalización de columnas en csv">
+      <created>1668975459846</created>
       <option name="number" value="00030" />
       <option name="presentableId" value="LOCAL-00030" />
       <option name="project" value="LOCAL" />
-      <updated>1668979255239</updated>
+      <updated>1668975459846</updated>
     </task>
     <option name="localTasksCounter" value="31" />
     <servers />
@@ -394,8 +403,13 @@
     <MESSAGE value="actualizando cosas1238" />
     <MESSAGE value="actualizando cosas127" />
     <MESSAGE value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
-    <MESSAGE value="pedidos 13" />
-    <option name="LAST_COMMIT_MESSAGE" value="pedidos 13" />
+    <MESSAGE value="arreglada la database(?)" />
+    <MESSAGE value="xd" />
+    <MESSAGE value="Arreglada la lista del método de pago para que sea separada en una lista de forma interna y que el formato de separación del csv sigan siendo comas" />
+    <MESSAGE value="IT JUST WORKS" />
+    <MESSAGE value="Creados extras.csv y pizzas.csv. Formato de pedidos.csv pendiente. Agregada función copycsv para copiar en listas los csvs." />
+    <MESSAGE value="Creada la función excludecsvformat para evadir los espacios en blanco generados por la normalización de columnas en csv" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creada la función excludecsvformat para evadir los espacios en blanco generados por la normalización de columnas en csv" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">

@@ -41,7 +41,7 @@
         <entry key="diff.csv">
           <value>
             <Attribute>
-              <option name="separator" value="," />
+              <option name="separator" value="|" />
             </Attribute>
           </value>
         </entry>

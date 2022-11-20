@@ -1,7 +1,10 @@
+import lecturacsv as csv
+
+
 def menu_admin(clientela):
     while True:
         op0 = int(input('''
-        1. Gestionar existencias
+        1. Gestionar pizzas
         2. Gestionar pedidos
         3. Gestionar cuentas
         4. Salir
@@ -9,7 +12,14 @@ def menu_admin(clientela):
         Selecciona tu opción: '''))
         print('\n', '#' * 50)
         if op0 == 1:
-            print("Existencias")
+            while True:
+                op1 = int(input('''
+                                1. Visualizar clientes
+                                2. Eliminar clientes
+                                3. Salir
+
+                                Selecciona tu opción: '''))
+                print('\n', '#' * 50)
         elif op0 == 2:
             print("Pedidos")
         elif op0 == 3:

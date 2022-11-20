@@ -1,9 +1,18 @@
 import clases as cl
-import pickle, os
-import clientes as clic
+import os
 from datetime import *
-from administrativos import menu_admin
 
+
+def actualizarcsv(db, new):
+    txt = ""
+    for i in range(len(new)):
+        txt += str(new[i]) + ","
+    txt += "\n"
+
+    with open(db, 'r') as file:
+        file.readlines()
+    with open(db, 'a') as file:
+        file.write(txt)
 
 def copycsv(db):
     rows = []
@@ -31,7 +40,7 @@ def refPago():
                 fven = date(yven, mven, 1)
                 cvv = int(input("           Ingresar CVV (máx 3 cifras): "))
                 if fven > datetime.today().date() and len(str(cvv)) == 3:
-                    fven = str(mven) + "/" + str(yven)
+                    fven = str(mven).zfill(2) + "/" + str(yven)
                     break
             except:
                 print("Ingrese datos válidos.")
@@ -65,7 +74,7 @@ def refPago():
         if sum(cardx) % 10 == 0:
             print("¡Tarjeta identificada y registrada satisfactoriamente!")
 
-            infocard = [card_type, card, fven, cvv]
+            infocard = card_type + "|" + str(card) + "|" + "|" + fven + "|" + str(cvv)
             return infocard
         else:
             print("La tarjeta NO es válida.")
@@ -174,70 +183,10 @@ def register():
     print("¡Cuenta creada satisfactoriamente!")
 
     ## Creación de la clase
-    x = cl.Cliente(dnix, nomx, apex, edx, usux, pasx, meth, [], 0)
-    clientela.append([dnix, nomx, apex, edx, usux, pasx, meth, [], 0])
+    x = cl.Cliente(dnix, nomx, apex, edx, usux, pasx, meth, 0, 0)
+    clientela.append([dnix, nomx, apex, edx, usux, pasx, meth, 0, 0])
 
-    ## Agregar al csv
-    baseclientes = open(csvclientes, 'a')
-    baseclientes.write(
-        '{0},{1},{2},{3},{4},{5},{6},0,0,\n'.format(dnix, nomx, apex, edx, usux, pasx, meth))
-    baseclientes.close()
-
-
-def login_cliente():
-    print('  BIENVENIDO CLIENTE  '.center(50, '#'))
-
-    flag = True
-    while flag == True:
-        global usux
-        global contx
-        usux = input('\n        Ingresa tu usuario: ')
-        contx = input('     Ingresa tu contraseña: ')
-
-        for i in range(len(clientela)):
-
-            if usux == clientela[i][4] and contx == clientela[i][5]:
-                nombre = 'BIENVENIDO ' + clientela[i][1].upper()
-                flag = False
-                break
-
-        if flag == True: print('\n', 'Intenta de nuevo o contacta con el administrador'.center(50, '*'))
-
-    print('\n', nombre.center(50), '\n')
-
-    clic.menu_clientes()
-
-
-def login_admin():
-    print('  BIENVENIDO ADMINISTRADOR  '.center(50, '#'))
-
-    flag = True
-    while flag == True:
-        dnix = input('\n            Ingresa tu DNI: ')
-        contx = input('     Ingresa tu contraseña: ')
-
-        for i in range(len(admin)):
-            if dnix == admin[i][0] and contx == admin[i][4]:
-                nombre = 'BIENVENIDO ' + admin[i][1].upper()
-                flag = False
-                break
-
-        if flag == True: print('\n', 'Intenta de nuevo o contacta con el administrador'.center(50, '*'))
-
-    print('\n', nombre.center(50), '\n')
-
-    menu_admin(clientela)
-
-
-def actualizar(db, new):
-    data = open(db, 'rb')
-    L = pickle.load(data)
-    data.close()
-    L.append(new)
-    data = open(db, 'wb')
-    pickle.dump(L, data)
-    data.close()
-
+    actualizarcsv(csvclientes, [dnix, nomx, apex, edx, usux, pasx, meth, 0, 0])
 
 usux = ""
 contx = ""
@@ -252,8 +201,6 @@ clientela = excludecsvformat(copycsv(csvclientes))
 prod = excludecsvformat(copycsv(csvpizzas))
 extras = excludecsvformat(copycsv(csvextras))
 
-for i in range(len(clientela)):
-    clientela[i][6] = clientela[i][6].split("|")
 for i in range(len(prod)):
     prod[i] = [int(prod[i][0]), prod[i][1], float(prod[i][2])]
 for i in range(len(extras)):
