@@ -43,5 +43,6 @@ def menu_clientes():
                     break
                 if rpta == 1:
                     for i in range(len(lec.clientela)):
+                        print(lec.clientela[2].)
                         print(lec.usux)
                         print(lec.contx)
