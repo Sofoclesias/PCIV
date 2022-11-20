@@ -3,6 +3,7 @@ from random import *
 carritoprod = []
 carritoext = []
 precio = []
+
 prod = [[1, "Pizza americana", 24.90], [2, "Pizza hawaiana", 26.90], [3, "Pizza suprema", 29.90],
         [4, "Pizza cuatro quesos", 28.90],
         [5, "Pizza de pepperoni", 27.90]]

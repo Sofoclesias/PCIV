@@ -5,6 +5,8 @@ from datetime import *
 from administrativos import menu_admin
 
 def refPago():
+    infocard = None
+
     while True:
         while True:
             try:
@@ -17,8 +19,13 @@ def refPago():
                     fven = str(mven) + "/" + str(yven)
                     break
             except:
-                print("Ingrese datos de tarjetas válidos.")
-                pass
+                print("Ingrese datos válidos.")
+
+                op = input("¿Desea seguir intentando? (y/n): ").lower()
+                if op == "y":
+                    pass
+                elif op == "n":
+                    return infocard
 
         card = str(card)
         cardx = [int(x) for x in card]
@@ -42,11 +49,17 @@ def refPago():
 
         if sum(cardx) % 10 == 0:
             print("¡Tarjeta identificada y registrada satisfactoriamente!")
-            break
+
+            infocard = [card_type, card, fven, cvv]
+            return infocard
         else:
             print("La tarjeta NO es válida.")
 
-    return [card_type, card, fven, cvv]
+            op = input("¿Desea seguir intentando? (y/n): ").lower()
+            if op == "y":
+                pass
+            elif op == "n":
+                return infocard
 
 
 def register():
