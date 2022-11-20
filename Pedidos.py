@@ -5,8 +5,7 @@ extras = [[1, "tomate", 1.90], [2, "parmesano", 2.90], [3, "bbq", 3.90], [4, "an
           [6, "chorizo", 4.90], [7, "jamón", 4.90], [8, "bordes de queso", 5.90], [9, "pepperoni", 5.90],
           [10, "champiññones", 6.90], [11, "salchicha", 7.90]]
 
-for i in prod:
-    print("{0:<19}{1:^19}".format(i[0], i[1]))
+
 def realizarpedidos():
     print("Menú Productos".center(36, "*"))
     print("{0:<4}{1:<19}{2:^19}".format("ID", "Productos", "Precios"))
