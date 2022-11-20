@@ -1,6 +1,4 @@
 from datetime import *
-
-
 class Personas:
     def __init__(self, dnix, nomx, apex, edx):
         self.DNI = dnix

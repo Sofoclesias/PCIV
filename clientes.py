@@ -3,10 +3,19 @@ import lecturacsv as lec
 
 
 def menu_clientes():
+    for i in range(len(lec.clientela)):
+        if lec.usux == lec.clientela[i][4] and lec.contx == lec.clientela[i][5]:
+            cliente_creacion = cl.Cliente(lec.clientela[i][0], lec.clientela[i][1], lec.clientela[i][2],
+                                          lec.clientela[i][3]
+                                          , lec.clientela[i][4], lec.clientela[i][5])
     while True:
         while True:
             try:
-                print(lec.clientela[2])
+
+                print("{0:^10} {1:^10} {2:^10} {3:^10}".format("DNI", "NOMBRE", "APELLIDO", "EDAD"))
+                print("{0:^10} {1:^10} {2:^10} {3:^10}".format(cliente_creacion.getDNI(), cliente_creacion.getNombres()
+                                                               , cliente_creacion.getApellidos(),
+                                                               cliente_creacion.getEdad()))
 
                 opcion = int(input("¿que desea realizar?\n"
                                    "1.actuaizar datos\n"
