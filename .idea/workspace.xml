@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="445d950a-c74e-4048-a83b-3c4bc20affe0" name="Changes" comment="actualizando cosas129">
+    <list default="true" id="445d950a-c74e-4048-a83b-3c4bc20affe0" name="Changes" comment="actualizando cosas12o">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pedidos.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pedidos.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tarjetas.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tarjetas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientes.py" beforeDir="false" afterPath="$PROJECT_DIR$/clientes.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +34,7 @@
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.Pedidos">
     <configuration name="Pedidos" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PCIV" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -139,8 +142,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main" />
         <item itemvalue="Python.Pedidos" />
+        <item itemvalue="Python.main" />
         <item itemvalue="Python.probando" />
         <item itemvalue="Python.Tarjetas" />
         <item itemvalue="Python.prueba max" />
@@ -310,7 +313,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668960466849</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="actualizando cosas12o">
+      <created>1668962169927</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1668962169927</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -338,7 +348,8 @@
     <MESSAGE value="actualizando cosas1238" />
     <MESSAGE value="actualizando cosas127" />
     <MESSAGE value="actualizando cosas129" />
-    <option name="LAST_COMMIT_MESSAGE" value="actualizando cosas129" />
+    <MESSAGE value="actualizando cosas12o" />
+    <option name="LAST_COMMIT_MESSAGE" value="actualizando cosas12o" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
