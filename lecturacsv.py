@@ -14,6 +14,7 @@ def refPago():
                 fven = date(yven, mven, 1)
                 cvv = int(input("           Ingresar CVV (máx 3 cifras): "))
                 if fven > datetime.today().date() and len(str(cvv)) == 3:
+                    fven = str(mven) + "/" + str(yven)
                     break
             except:
                 print("Ingrese datos de tarjetas válidos.")
@@ -216,9 +217,10 @@ csvadmin = os.path.dirname(os.path.realpath(__file__)) + '\db\ladmin.csv'
 clientela = []
 clx = open(csvclientes, "r")
 for linea in clx:
-    clientela.append(linea.split("|"))
+    clientela.append(linea.split(","))
 
-print(clientela)
+for i in range(len(clientela)):
+    clientela[i][6] = clientela[i][6].split("|")
 
 clx.close()
 
