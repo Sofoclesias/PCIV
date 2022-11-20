@@ -28,22 +28,10 @@ def menu_clientes():
                         print("sus datos son")
                         for i in range(len(lec.clientela)):
                             if lec.usux == lec.clientela[i][4] and lec.contx == lec.clientela[i][5]:
-                                print(" {0:^10} {1:^10} {2:^10} {3:^10} {4:^10} {5:^10} {6:^10} {7:^10} ".format("DNI",
-                                                                                                                 lec.clientela[
-                                                                                                                     i][
-                                                                                                                     0],
-                                                                                                                 "nombre",
-                                                                                                                 lec.clientela[
-                                                                                                                     i][
-                                                                                                                     1],
-                                                                                                                 "Apellido",
-                                                                                                                 lec.clientela[
-                                                                                                                     i][
-                                                                                                                     2],
-                                                                                                                 "Edad",
-                                                                                                                 lec.clientela[
-                                                                                                                     i][
-                                                                                                                     3]))
+                                print(" {0:^10} {1:^10} {2:^10} {3:^10} {4:^10} {5:^10} {6:^10} {7:^10} ".format(
+                                    "DNI", lec.clientela[i][0], "nombre", lec.clientela[i][1], "Apellido",
+                                    lec.clientela[i][2],
+                                    "Edad", lec.clientela[i][3]))
 
                         rpta = int(input("¿que desea hacer?\n"
                                          "1.cambiar metodo de pago\n"
