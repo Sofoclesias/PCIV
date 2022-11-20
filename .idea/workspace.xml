@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="445d950a-c74e-4048-a83b-3c4bc20affe0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pedidos.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pedidos.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/clientes.csv" beforeDir="false" afterPath="$PROJECT_DIR$/db/clientes.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lecturacsv.py" beforeDir="false" afterPath="$PROJECT_DIR$/lecturacsv.py" afterDir="false" />
+    <list default="true" id="445d950a-c74e-4048-a83b-3c4bc20affe0" name="Changes" comment="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
+      <change afterPath="$PROJECT_DIR$/Referidos.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -314,7 +311,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668963790664</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
+      <created>1668964639250</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1668964639250</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
