@@ -19,7 +19,7 @@ def realizarpedidos():
                 print("{0:<4}{3}{1:<19}{3}{2:^6}".format("ID", "Productos", "Precios", "|"))
                 for i in prod:
                     print("{0:<4}{3}{1:<19}{3}{2:>6}".format(i[0], i[1], i[2], "|"))
-                print("Si desea salir ingrese: 0\n")
+                print("Si desea salir, ingrese 0\n")
                 opcprod = int(input("¿Qué producto desea ordenar? "))
                 print("\n")
                 if 0 <= opcprod <= len(prod):
@@ -51,7 +51,7 @@ def realizarpedidos():
                 print("{0:4}{3}{1:<19}{3}{2:^6}".format("ID", "Productos", "Precios", "|"))
                 for i in extras:
                     print("{0:<4}{3}{1:<19}{3}{2:>6}".format(i[0], i[1], i[2], "|"))
-                print("Si desea salir ingrese: 0\n")
+                print("Si desea salir, ingrese 0\n")
                 opcext = int(input("¿Qué extras desea añadir? "))
                 print("\n")
                 if 0 <= opcext <= len(extras):
