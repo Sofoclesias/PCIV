@@ -1,4 +1,6 @@
 from random import *
+from lecturacsv import *
+from Pedidos import *
 
 carritoprod = []
 carritoext = []
@@ -84,6 +86,16 @@ def realizarpedidos():
     print(" Precio total:", sum(precio))
 
     px = sum(precio)
+    for i in range(len(clientela)):
+        numero_referido = int(clientela[i][8])
+        print("Puntos de referido: ", numero_referido)
+        if numero_referido > 0:
+            clientela[i][8] = int(clientela[i][8]) - 1
+            px = px - 0.50
+            print("Precio tras descuento por referidos: ", px)
+            pass
+        else:
+            print("No cuenta con puntos de referido")
 
     pedido_global = [codigo, carritoprod, carritoext]
     return pedido_global
