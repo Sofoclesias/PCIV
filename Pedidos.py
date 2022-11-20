@@ -86,4 +86,3 @@ def realizarpedidos():
     return pedido_global
 
 
-realizarpedidos()
