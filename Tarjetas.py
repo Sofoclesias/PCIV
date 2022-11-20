@@ -37,6 +37,4 @@ def tarjetas():
                 Tar.remove(tarjeta)
         else:
             print("Ingrese un número válido")
-
-
-tarjetas()
+    return tarjeta
