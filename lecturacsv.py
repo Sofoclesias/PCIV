@@ -3,7 +3,6 @@ import pickle, os
 import clientes as clic
 from datetime import *
 
-
 def refPago():
     while True:
         while True:
