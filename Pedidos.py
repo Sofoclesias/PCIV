@@ -1,6 +1,6 @@
 from random import *
 from lecturacsv import *
-from Pedidos import *
+
 
 carritoprod = []
 carritoext = []
@@ -92,9 +92,9 @@ def realizarpedidos():
         if numero_referido > 0:
             clientela[i][8] = int(clientela[i][8]) - 1
             px = px - 0.50
-            print("El nuevo precio tras el descuento de referidos es: ", px)
         else:
-            print("No cuenta con puntos de referido")
+            pass
+    print("El nuevo precio tras el descuento de referidos es: ", px)
 
     pedido_global = [codigo, carritoprod, carritoext]
     return pedido_global
