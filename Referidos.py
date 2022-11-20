@@ -1,9 +1,10 @@
 from lecturacsv import *
 from Pedidos import *
 
-for i in clientela:
-    numero_referido = clientela[i][8]
+numero_referido = int(clientela[i][8])
+for i in range(len(clientela)):
     if numero_referido > 0:
+        clientela[i][8] = int(clientela[i][8]) - 1
         precio = precio - 0.20
         pass
     else:
