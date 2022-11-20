@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="445d950a-c74e-4048-a83b-3c4bc20affe0" name="Changes" comment="actualizando cosas3">
+    <list default="true" id="445d950a-c74e-4048-a83b-3c4bc20affe0" name="Changes" comment="Tarjetas">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tarjetas.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tarjetas.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,8 +32,8 @@
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.probando">
-    <configuration name="clientes" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.Tarjetas">
+    <configuration name="Tarjetas" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PCIV" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -44,7 +45,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/clientes.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Tarjetas.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -139,11 +140,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Tarjetas" />
+        <item itemvalue="Python.lecturacsv" />
         <item itemvalue="Python.probando" />
         <item itemvalue="Python.practicando lll" />
         <item itemvalue="Python.main" />
-        <item itemvalue="Python.clientes" />
-        <item itemvalue="Python.lecturacsv" />
       </list>
     </recent_temporary>
   </component>
@@ -205,7 +206,28 @@
       <option name="project" value="LOCAL" />
       <updated>1668912723367</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Menú de inicio - bosquejo">
+      <created>1668914060991</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1668914060991</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Menú de inicio - bosquejo">
+      <created>1668914133457</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1668914133457</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Tarjetas">
+      <created>1668914153251</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1668914153251</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -222,11 +244,12 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="llll" />
     <MESSAGE value="última prueba de conexión" />
-    <MESSAGE value="Menú de inicio - bosquejo" />
     <MESSAGE value="actualizando cosas" />
     <MESSAGE value="actualizando cosas2" />
     <MESSAGE value="actualizando cosas3" />
-    <option name="LAST_COMMIT_MESSAGE" value="actualizando cosas3" />
+    <MESSAGE value="Menú de inicio - bosquejo" />
+    <MESSAGE value="Tarjetas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tarjetas" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
