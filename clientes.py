@@ -1,5 +1,6 @@
 import clases as cl
 import lecturacsv as lec
+import Tarjetas as tarj
 
 
 def menu_clientes():
@@ -54,4 +55,4 @@ def menu_clientes():
                 if rpta == 5:
                     break
                 if rpta == 1:
-                    pass
+                    cliente_creacion.setnumero_de_cuenta(tarj.tarjetas())
