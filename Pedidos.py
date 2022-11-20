@@ -20,11 +20,20 @@ def realizarpedidos():
                 print("si desea salir presione 0\n")
                 opcprod = int(input("¿Qué producto desea ordenar? "))
                 print("\n")
-                if opcprod <= len(prod):
-                    for i in prod:
-                        if int(opcprod) == i[0]:
-                            carritoprod.append(i[1])
-                            precio.append(i[2])
+                if 0 <= opcprod <= len(prod):
+                    if opcprod > 0:
+                        print("¿cuantas unidades?")
+                        while True:
+                            try:
+                                cantidad = int(input("ingrese la cantidad de pizzas"))
+                                if cantidad > 0:
+                                    break
+                            except:
+                                print("escriba una cantidad válida")
+                        for i in prod:
+                            if int(opcprod) == i[0]:
+                                carritoprod.append([i[1], "{} unidades".format(cantidad)])
+                                precio.append(i[2] * cantidad)
                     break
                 else:
                     print("ingrese una opción valida\n")
@@ -43,19 +52,26 @@ def realizarpedidos():
                 print("si desea salir presione 0\n")
                 opcext = int(input("¿Qué extras desea añadir? "))
                 print("\n")
-                if opcext <= len(extras):
-                    for i in extras:
-                        if int(opcext) == i[0]:
-                            carritoext.append(i[1])
-                            precio.append(i[2])
+                if 0 <= opcext <= len(extras):
+                    if opcext > 0:
+                        gramos = int(input("ingrese las unidades extras"))
+                        for i in extras:
+                            if int(opcext) == i[0]:
+                                carritoext.append([i[1], "{} unidades".format(gramos)])
+                                precio.append(i[2] * gramos)
                     break
                 else:
                     print("ingrese una opción valida\n")
             except:
                 print("ingrese una opcion válida\n")
-        if opcprod == 0:
+        if opcext == 0:
             break
-    print("Pizzas: ", carritoprod)
-    print("Extras: ", carritoext)
-    print("Precio:", sum(precio))
+    print("Pizzas: ".center(50, "*"))
+    for x in carritoprod:
+        print("{0:<25}{1:^25}".format(x[0], x[1]))
+    if len(carritoext) > 0:
+        print(" Extras: ".center(50, "*"))
+        for x in carritoext:
+            print("{0:<25}{1:^25}".format(x[0], x[1]))
+    print(" Precio total:", sum(precio))
 realizarpedidos()
