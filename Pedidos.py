@@ -33,7 +33,7 @@ def realizarpedidos():
                         for i in prod:
                             if int(opcprod) == i[0]:
                                 carritoprod.append([i[1], "{} unidades".format(cantidad)])
-                                precio.append(i[2] * cantidad)
+                                precio.append(round(i[2] * cantidad, 1))
                     break
                 else:
                     print("ingrese una opción valida\n")
@@ -58,7 +58,7 @@ def realizarpedidos():
                         for i in extras:
                             if int(opcext) == i[0]:
                                 carritoext.append([i[1], "{} unidades".format(gramos)])
-                                precio.append(i[2] * gramos)
+                                precio.append(round(i[2] * gramos, 1))
                     break
                 else:
                     print("ingrese una opción valida\n")
