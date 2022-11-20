@@ -48,7 +48,8 @@ class Cliente(Personas):
         super().__init__(dnix, nomx, apex, edx)
         self.usuario = usux
         self.contraseña = contx
-        self.metodoPago = pedx
+        self.metodoPago = meth
+        self.pedidos = pedx
         self.ref = refx
 
     def getRef(self):

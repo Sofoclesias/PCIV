@@ -2,6 +2,7 @@ import clases as cl
 import pickle, os
 import clientes as clic
 from datetime import *
+from administrativos import menu_admin
 
 def refPago():
     while True:
@@ -196,6 +197,8 @@ def login_admin():
         if flag == True: print('\n', 'Intenta de nuevo o contacta con el administrador'.center(50, '*'))
 
     print('\n', nombre.center(50), '\n')
+
+    menu_admin(clientela)
 
 
 def actualizar(db, new):
