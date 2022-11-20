@@ -17,19 +17,19 @@ def realizarpedidos():
                 print("{0:<4}{3}{1:<19}{3}{2:^6}".format("ID", "Productos", "Precios", "|"))
                 for i in prod:
                     print("{0:<4}{3}{1:<19}{3}{2:>6}".format(i[0], i[1], i[2], "|"))
-                print("Si desea salir presione 0\n")
-                opcprod = int(input("¿Qué producto desea ordenar? (Ingrese el ID correspondiente) "))
+                print("si desea salir presione 0\n")
+                opcprod = int(input("¿Qué producto desea ordenar? "))
                 print("\n")
                 if 0 <= opcprod <= len(prod):
                     if opcprod > 0:
-                        print("¿Cuántas unidades desea?")
+                        print("¿cuantas unidades?")
                         while True:
                             try:
-                                cantidad = int(input(""))
+                                cantidad = int(input("ingrese la cantidad de pizzas"))
                                 if cantidad > 0:
                                     break
                             except:
-                                print("Ingrese una cantidad válida")
+                                print("escriba una cantidad válida")
                         for i in prod:
                             if int(opcprod) == i[0]:
                                 carritoprod.append([i[1], "{} unidades".format(cantidad)])
@@ -54,7 +54,7 @@ def realizarpedidos():
                 print("\n")
                 if 0 <= opcext <= len(extras):
                     if opcext > 0:
-                        gramos = int(input("Número de porciones: "))
+                        gramos = int(input("ingrese las unidades extras"))
                         for i in extras:
                             if int(opcext) == i[0]:
                                 carritoext.append([i[1], "{} unidades".format(gramos)])
@@ -74,6 +74,4 @@ def realizarpedidos():
         for x in carritoext:
             print("{0:<25}{1:^25}".format(x[0], x[1]))
     print(" Precio total:", sum(precio))
-
-
 realizarpedidos()

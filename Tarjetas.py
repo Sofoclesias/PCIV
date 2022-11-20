@@ -1,6 +1,5 @@
 Tar = []
 
-
 def verificacion(x):
     suma = 0
     if len(x) == 16:
@@ -19,8 +18,6 @@ def verificacion(x):
             return ("la tareta a sido validada")
     else:
         return ("la tarjeta no existe")
-
-
 def tarjetas():
     while True:
         while True:
