@@ -3,9 +3,6 @@ import pickle, os
 import clientes as clic
 from datetime import *
 
-print("a")
-
-
 def refPago():
     while True:
         while True:
@@ -130,9 +127,12 @@ def register():
                     with open(csvclientes, 'r') as file:
                         data = file.readlines()
 
-                    data[i] = "{0},{1},{2},{3},{4},{5},{6},\n".format(clientela[i][0], clientela[i][1], clientela[i][2],
-                                                                      clientela[i][3], clientela[i][4], clientela[i][5],
-                                                                      clientela[i][6])
+                    data[i] = "{0},{1},{2},{3},{4},{5},{6},{7},{8},\n".format(clientela[i][0], clientela[i][1],
+                                                                              clientela[i][2],
+                                                                              clientela[i][3], clientela[i][4],
+                                                                              clientela[i][5],
+                                                                              clientela[i][6], clientela[i][7],
+                                                                              clientela[i][8])
 
                     with open(csvclientes, 'w') as file:
                         file.writelines(data)
@@ -150,8 +150,8 @@ def register():
     ## Agregar al csv
     baseclientes = open(csvclientes, 'a')
     baseclientes.write(
-        '{0},{1},{2},{3},{4},{5},{6},{7},0,\n'.format(x.DNI, x.nombres, x.apellidos, x.edad, x.usuario, x.contraseña,
-                                                      x.metodoPago, []))
+        '{0},{1},{2},{3},{4},{5},{6},0,0,\n'.format(x.DNI, x.nombres, x.apellidos, x.edad, x.usuario, x.contraseña,
+                                                    meth))
     baseclientes.close()
 
 

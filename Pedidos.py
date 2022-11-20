@@ -78,4 +78,3 @@ def realizarpedidos():
     print(" Precio total:", sum(precio))
 
 
-realizarpedidos()
