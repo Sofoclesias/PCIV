@@ -2,6 +2,24 @@ import clases as cl
 import os
 from datetime import *
 
+def modificarcsv(db, local_list, new_val, row, column):
+    with open(db, 'r') as file:
+        data = file.readlines()
+
+    txt = ""
+    for i in range(len(local_list[0]) - 1):
+        if column == i:
+            txt += str(new_val) + ","
+        else:
+            txt += str(local_list[row][i]) + ","
+
+        print(txt)
+    txt += "\n"
+
+    data[row] = txt
+
+    with open(csvclientes, 'w') as file:
+        file.writelines(data)
 
 def actualizarcsv(db, new):
     txt = ""
@@ -163,18 +181,7 @@ def register():
                     print("¡Cliente {} encontrado!".format(clientela[i][1]))
                     clientela[i][8] = int(clientela[i][8]) + 1
 
-                    with open(csvclientes, 'r') as file:
-                        data = file.readlines()
-
-                    data[i] = "{0},{1},{2},{3},{4},{5},{6},{7},{8},\n".format(clientela[i][0], clientela[i][1],
-                                                                              clientela[i][2],
-                                                                              clientela[i][3], clientela[i][4],
-                                                                              clientela[i][5],
-                                                                              clientela[i][6], clientela[i][7],
-                                                                              clientela[i][8])
-
-                    with open(csvclientes, 'w') as file:
-                        file.writelines(data)
+                    modificarcsv(csvclientes, clientela, clientela[i][8], i, 8)
 
                     flag = False
                     break

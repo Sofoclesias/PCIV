@@ -31,19 +31,41 @@ def menu_admin():
                                                     1. Visualizar extras
                                                     2. Añadir extras
                                                     3. Eliminar extras
-                                                    4. Salir
+                                                    4. Modificar extras
+                                                    5. Salir
 
                                                     Selecciona tu opción: '''))
 
                     if op2 == 1:
                         print("Visualizando todos los extras.")
-                        ex = sorted(extras, key=lambda x: (x[2], x[3]))
-                        print("{0:<20s}{1:>20s}{2:>20s}".format("DNI", "Nombres", "Apellidos"))
+                        ex = sorted(extras, key=lambda x: (x[2], x[3]), reverse=True)
+                        print("{0:<20s}{1:>20s}{2:>20s}".format("Nombre", "Precio", "Cantidad"))
+
+                        for i in range(len(ex)):
+                            print("{0:<20s}{1:>20s}{2:>20d}".format(ex[i][1], str(ex[i][2]), ex[i][3]))
                     elif op2 == 2:
+                        while True:
+                            try:
+                                nomx = input("Ingrese nombre de la pizza: ")
+                                px = float(input("Ingrese precio de la pizza: "))
+                                nx = int(input("Ingresar cantidad de pizzas que ofrecer: "))
 
+                                print("\n{0:<20s}{1:>20s}{2:>20s}".format("Nombre", "Precio", "Cantidad"))
+                                print("{0:<20s}{1:>20s}{2:>20s}".format(nomx, str(px), str(nx)))
+
+                                ver = input("\n¿Seguro que deseas añadir esta pizza? (y/n): ").lower()
+                                if ver == "y":
+                                    actualizarcsv(csvextras, [nomx, px, nx])
+                                    break
+                                else:
+                                    pass
+                            except:
+                                print("Ingrese datos válidos.")
                     elif op2 == 3:
-
-                    elif op2 == 4:
+                        print("eliminar)
+                        elif op2 == 4:
+                        print("tu vieja")
+                        elif op2 == 5:
                         break
                     else:
                         print("Ingrese una opción válida.")
