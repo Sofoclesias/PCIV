@@ -151,8 +151,7 @@ def register():
     ## Agregar al csv
     baseclientes = open(csvclientes, 'a')
     baseclientes.write(
-        '{0},{1},{2},{3},{4},{5},{6},0,0,\n'.format(x.DNI, x.nombres, x.apellidos, x.edad, x.usuario, x.contraseña,
-                                                    meth))
+        '{0},{1},{2},{3},{4},{5},{6},0,0,\n'.format(dnix, nomx, apex, edx, usux, pasx, meth))
     baseclientes.close()
 
 
