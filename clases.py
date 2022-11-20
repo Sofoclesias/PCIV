@@ -48,7 +48,10 @@ class Cliente(Personas):
         super().__init__(dnix, nomx, apex, edx)
         self.usuario = usux
         self.contraseña = contx
-        self.numero_de_cuenta = meth
+        if meth == None:
+            self.numero_de_cuenta = None
+        else:
+            self.numero_de_cuenta = meth
         self.pedido = pedx
         self.ref = refx
 
