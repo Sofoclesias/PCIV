@@ -10,17 +10,16 @@ extras = [[1, "tomate", 1.90], [2, "parmesano", 2.90], [3, "bbq", 3.90], [4, "an
 
 
 def realizarpedidos():
-    print("Menú Productos".center(31, "*"))
-    print("{0:<4}{3}{1:<19}{3}{2:^6}".format("ID", "Productos", "Precios", "|"))
-    for i in prod:
-        print("{0:<4}{3}{1:<19}{3}{2:>6}".format(i[0], i[1], i[2], "|"))
-
     while True:
         while True:
-
             try:
-                print("si desea salir presiones 0")
+                print("Menú Productos".center(31, "*"))
+                print("{0:<4}{3}{1:<19}{3}{2:^6}".format("ID", "Productos", "Precios", "|"))
+                for i in prod:
+                    print("{0:<4}{3}{1:<19}{3}{2:>6}".format(i[0], i[1], i[2], "|"))
+                print("si desea salir presione 0\n")
                 opcprod = int(input("¿Qué producto desea ordenar? "))
+                print("\n")
                 if opcprod <= len(prod):
                     for i in prod:
                         if int(opcprod) == i[0]:
@@ -28,26 +27,34 @@ def realizarpedidos():
                             precio.append(i[2])
                     break
                 else:
-                    print("ingrese una opción valida")
+                    print("ingrese una opción valida\n")
             except:
-                print("ingrese una opcion válida")
+                print("ingrese una opcion válida\n")
         if opcprod == 0:
             break
 
-    print("Menú Extras".center(31, "*"))
-    print("{0:4}{3}{1:<19}{3}{2:^6}".format("ID", "Productos", "Precios", "|"))
-    for i in extras:
-        print("{0:<4}{3}{1:<19}{3}{2:>6}".format(i[0], i[1], i[2], "|"))
-    print("Una vez terminado, escriba: salir")
     while True:
-        opcext = input("¿Qué extras desea añadir? ")
-        if opcext == i[0]:
-            carritoext.append(extras[i][1])
-            precio.append(extras[i][3])
-        elif opcext == "salir":
+        while True:
+            try:
+                print("Menú Extras".center(31, "*"))
+                print("{0:4}{3}{1:<19}{3}{2:^6}".format("ID", "Productos", "Precios", "|"))
+                for i in extras:
+                    print("{0:<4}{3}{1:<19}{3}{2:>6}".format(i[0], i[1], i[2], "|"))
+                print("si desea salir presione 0\n")
+                opcext = int(input("¿Qué extras desea añadir? "))
+                print("\n")
+                if opcext <= len(extras):
+                    for i in extras:
+                        if int(opcext) == i[0]:
+                            carritoext.append(i[1])
+                            precio.append(i[2])
+                    break
+                else:
+                    print("ingrese una opción valida\n")
+            except:
+                print("ingrese una opcion válida\n")
+        if opcprod == 0:
             break
-        else:
-            print("Ingresar un codigo válido")
     print("Pizzas: ", carritoprod)
     print("Extras: ", carritoext)
     print("Precio:", sum(precio))
