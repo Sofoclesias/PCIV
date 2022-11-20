@@ -38,7 +38,7 @@ def realizarpedidos():
                                 precio.append(round(i[2] * cantidad, 1))
                     break
                 else:
-                    print("Ingrese una opción valida\n")
+                    print("Ingrese una opción válida\n")
             except:
                 print("Ingrese una opcion válida\n")
         if opcprod == 0:
@@ -63,7 +63,7 @@ def realizarpedidos():
                                 precio.append(round(i[2] * gramos, 1))
                     break
                 else:
-                    print("Ingrese una opción valida\n")
+                    print("Ingrese una opción válida\n")
             except:
                 print("Ingrese una opcion válida\n")
         if opcext == 0:
