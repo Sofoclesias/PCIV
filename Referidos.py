@@ -1,8 +1,8 @@
 from lecturacsv import *
 from Pedidos import *
 
-numero_referido = int(clientela[i][8])
 for i in range(len(clientela)):
+    numero_referido = int(clientela[i][8])
     print("Puntos de referido: ", numero_referido)
     if numero_referido > 0:
         clientela[i][8] = int(clientela[i][8]) - 1
@@ -10,3 +10,4 @@ for i in range(len(clientela)):
         pass
     else:
         print("No cuenta con puntos de referido")
+

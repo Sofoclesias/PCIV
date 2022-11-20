@@ -82,7 +82,8 @@ def realizarpedidos():
         for x in carritoext:
             print("{0:<25}{1:^25}{2:^25}".format(x[0], x[1], x[2]))
     print(" Precio total:", sum(precio))
+
+    px = sum(precio)
+
     pedido_global = [codigo, carritoprod, carritoext]
     return pedido_global
-
-

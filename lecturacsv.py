@@ -216,7 +216,9 @@ csvadmin = os.path.dirname(os.path.realpath(__file__)) + '\db\ladmin.csv'
 clientela = []
 clx = open(csvclientes, "r")
 for linea in clx:
-    clientela.append(linea.split(","))
+    clientela.append(linea.split("|"))
+
+print(clientela)
 
 clx.close()
 
