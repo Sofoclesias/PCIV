@@ -7,7 +7,7 @@ while True:
     2. Portal de compras
     3. Portal administrativo
     4. Salir
-
+    
     Selecciona tu opción: '''))
     print('\n', '#' * 50)
     if op == 1:

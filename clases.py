@@ -51,6 +51,7 @@ class Cliente(Personas):
         self.usuario = usux
         self.contraseña = contx
         self.ref = 0
+        self.numero_de_cuenta = None
 
     def getRef(self):
         return self.ref
@@ -58,4 +59,8 @@ class Cliente(Personas):
     def setRef(self, refx):
         self.ref = refx
 
-    # def actualizarMetodoPago
+    def getnumero_de_cuenta(self):
+        return self.numero_de_cuenta
+
+    def setnumero_de_cuenta(self, nuevo_numero_de_cuenta):
+        self.numero_de_cuenta = nuevo_numero_de_cuenta

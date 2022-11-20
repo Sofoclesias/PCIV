@@ -102,10 +102,13 @@ def login_cliente():
 
     flag = True
     while flag == True:
+        global usux
+        global contx
         usux = input('\n        Ingresa tu usuario: ')
         contx = input('     Ingresa tu contraseña: ')
 
         for i in range(len(clientela)):
+
             if usux == clientela[i][4] and contx == clientela[i][5]:
                 nombre = 'BIENVENIDO ' + clientela[i][1].upper()
                 flag = False
@@ -155,7 +158,8 @@ clx = open(csvclientes, "r")
 for linea in clx:
     clientela.append(linea.split(","))
 clx.close()
-
+usux = ""
+contx = ""
 admin = []
 adx = open(csvadmin, "r")
 for linea in adx:
