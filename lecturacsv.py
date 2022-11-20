@@ -13,6 +13,11 @@ def copycsv(db):
     dbx.close()
     return rows
 
+def excludecsvformat(db):
+    for i in range(len(db)):
+        for j in range(len(db[0])):
+            db[i][j] = db[i][j].rstrip(" ")
+    return db
 
 def refPago():
     infocard = None
@@ -242,7 +247,10 @@ csvadmin = os.path.dirname(os.path.realpath(__file__)) + '\db\ladmin.csv'
 csvpizzas = os.path.dirname(os.path.realpath(__file__)) + '\db\pizzas.csv'
 csvextras = os.path.dirname(os.path.realpath(__file__)) + '\db\extras.csv'
 
-admin, clientela, prod, extras = copycsv(csvadmin), copycsv(csvclientes), copycsv(csvpizzas), copycsv(csvextras)
+admin = excludecsvformat(copycsv(csvadmin))
+clientela = excludecsvformat(copycsv(csvclientes))
+prod = excludecsvformat(copycsv(csvpizzas))
+extras = excludecsvformat(copycsv(csvextras))
 
 for i in range(len(clientela)):
     clientela[i][6] = clientela[i][6].split("|")
