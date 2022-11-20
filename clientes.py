@@ -1,7 +1,7 @@
 import clases as cl
 import lecturacsv as lec
 import Tarjetas as tarj
-
+import Pedidos as ped
 
 def menu_clientes():
     for i in range(len(lec.clientela)):
@@ -100,3 +100,6 @@ def menu_clientes():
                         except:
                             print("escriba una edad válida")
                     cliente_creacion.setEdad(nuevo_dni)
+
+        if opcion == 2:
+            ped.realizarpedidos()
