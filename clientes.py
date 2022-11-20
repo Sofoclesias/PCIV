@@ -21,7 +21,7 @@ def menu_clientes():
                 pass
         if opcion == 3:
             break
-        if opcion == 2:
+        if opcion == 1:
             while True:
                 while True:
                     try:
