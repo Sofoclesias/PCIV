@@ -39,7 +39,9 @@ def realizarpedidos():
             break
         else:
             print("Ingresar un codigo válido")
-    print("Pizzas: ", carritoprod, "Extras: ", carritoext, "Precio:", precio)
+    print("Pizzas: ", carritoprod)
+    print("Extras: ", carritoext)
+    print("Precio:", sum(precio))
 
 
 realizarpedidos()
