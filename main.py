@@ -45,7 +45,7 @@ def login_admin():
 
     print('\n', nombre.center(50), '\n')
 
-    menu_admin(clientela)
+    menu_admin()
 
 
 print('  BIENVENIDO  '.center(50, '#'))
