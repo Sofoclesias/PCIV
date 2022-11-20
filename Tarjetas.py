@@ -3,10 +3,10 @@ Tar = []
 
 def tarjetas():
     while True:
-        tarjeta = input("Ingrese los 16 caracteres de su tarjeta: ")
-        tarjeta4 = list(tarjeta)
+        tarjeta = int(input("Ingrese los 16 caracteres de su tarjeta: "))
+        tarjeta4 = list(str(tarjeta))
         dig = tarjeta4[-4:]
-        if len(tarjeta) == 16:
+        if len(str(tarjeta)) == 16:
             Tar.append(tarjeta)
             print("Tarjeta añadida")
             print("**** **** **** ", dig)
@@ -20,7 +20,9 @@ def tarjetas():
             elif opc == "2":
                 Tar.remove(tarjeta)
                 print(Tar)
-                pass
+            else:
+                print("Ingrese una respuesta válida")
+                Tar.remove(tarjeta)
         else:
             print("Ingrese un número válido")
 
