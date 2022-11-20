@@ -4,7 +4,24 @@ import clientes as clic
 from datetime import *
 from administrativos import menu_admin
 
+
+def copycsv(db):
+    rows = []
+    dbx = open(db, "r")
+    for linea in dbx:
+        rows.append(linea.split(","))
+    dbx.close()
+    return rows
+
+def excludecsvformat(db):
+    for i in range(len(db)):
+        for j in range(len(db[0])):
+            db[i][j] = db[i][j].rstrip(" ")
+    return db
+
 def refPago():
+    infocard = None
+
     while True:
         while True:
             try:
@@ -14,10 +31,16 @@ def refPago():
                 fven = date(yven, mven, 1)
                 cvv = int(input("           Ingresar CVV (máx 3 cifras): "))
                 if fven > datetime.today().date() and len(str(cvv)) == 3:
+                    fven = str(mven) + "/" + str(yven)
                     break
             except:
-                print("Ingrese datos de tarjetas válidos.")
-                pass
+                print("Ingrese datos válidos.")
+
+                op = input("¿Desea seguir intentando? (y/n): ").lower()
+                if op == "y":
+                    pass
+                elif op == "n":
+                    return infocard
 
         card = str(card)
         cardx = [int(x) for x in card]
@@ -41,11 +64,17 @@ def refPago():
 
         if sum(cardx) % 10 == 0:
             print("¡Tarjeta identificada y registrada satisfactoriamente!")
-            break
+
+            infocard = [card_type, card, fven, cvv]
+            return infocard
         else:
             print("La tarjeta NO es válida.")
 
-    return [card_type, card, fven, cvv]
+            op = input("¿Desea seguir intentando? (y/n): ").lower()
+            if op == "y":
+                pass
+            elif op == "n":
+                return infocard
 
 
 def register():
@@ -210,23 +239,22 @@ def actualizar(db, new):
     data.close()
 
 
-csvclientes = os.path.dirname(os.path.realpath(__file__)) + '\db\clientes.csv'
-csvadmin = os.path.dirname(os.path.realpath(__file__)) + '\db\ladmin.csv'
-
-clientela = []
-clx = open(csvclientes, "r")
-for linea in clx:
-    clientela.append(linea.split("|"))
-
-print(clientela)
-
-clx.close()
-
 usux = ""
 contx = ""
 
-admin = []
-adx = open(csvadmin, "r")
-for linea in adx:
-    admin.append(linea.split(","))
-adx.close()
+csvclientes = os.path.dirname(os.path.realpath(__file__)) + '\db\clientes.csv'
+csvadmin = os.path.dirname(os.path.realpath(__file__)) + '\db\ladmin.csv'
+csvpizzas = os.path.dirname(os.path.realpath(__file__)) + '\db\pizzas.csv'
+csvextras = os.path.dirname(os.path.realpath(__file__)) + '\db\extras.csv'
+
+admin = excludecsvformat(copycsv(csvadmin))
+clientela = excludecsvformat(copycsv(csvclientes))
+prod = excludecsvformat(copycsv(csvpizzas))
+extras = excludecsvformat(copycsv(csvextras))
+
+for i in range(len(clientela)):
+    clientela[i][6] = clientela[i][6].split("|")
+for i in range(len(prod)):
+    prod[i] = [int(prod[i][0]), prod[i][1], float(prod[i][2])]
+for i in range(len(extras)):
+    extras[i] = [int(extras[i][0]), extras[i][1], float(extras[i][2])]

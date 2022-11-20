@@ -10,7 +10,28 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\db\extras.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\db\ladmin.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\db\pedidos.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\db\pizzas.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
