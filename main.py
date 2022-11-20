@@ -3,6 +3,7 @@ from administrativos import menu_admin
 import clientes as clic
 
 
+
 def login_cliente():
     print('  BIENVENIDO CLIENTE  '.center(50, '#'))
 
@@ -24,7 +25,7 @@ def login_cliente():
 
     print('\n', nombre.center(50), '\n')
 
-    clic.menu_clientes()
+    clic.menu_clientes(usux, contx)
 
 
 def login_admin():
@@ -47,6 +48,9 @@ def login_admin():
 
     menu_admin()
 
+
+usux = ""
+contx = ""
 
 print('  BIENVENIDO  '.center(50, '#'))
 while True:

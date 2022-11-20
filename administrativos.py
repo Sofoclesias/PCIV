@@ -40,8 +40,10 @@ def menu_admin():
                         ex = sorted(extras, key=lambda x: (x[2], x[3]))
                         print("{0:<20s}{1:>20s}{2:>20s}".format("DNI", "Nombres", "Apellidos"))
                     elif op2 == 2:
+                        pass
 
                     elif op2 == 3:
+                        pass
 
                     elif op2 == 4:
                         break
@@ -149,6 +151,3 @@ def menu_admin():
             break
         else:
             print(' Ingresa una opcion del menú')
-
-
-menu_admin()

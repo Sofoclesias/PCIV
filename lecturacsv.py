@@ -188,8 +188,6 @@ def register():
 
     actualizarcsv(csvclientes, [dnix, nomx, apex, edx, usux, pasx, meth, 0, 0])
 
-usux = ""
-contx = ""
 
 csvclientes = os.path.dirname(os.path.realpath(__file__)) + '\db\clientes.csv'
 csvadmin = os.path.dirname(os.path.realpath(__file__)) + '\db\ladmin.csv'
