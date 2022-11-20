@@ -7,14 +7,14 @@ extras = [[1, "tomate", 1.90], [2, "parmesano", 2.90], [3, "bbq", 3.90], [4, "an
 
 
 def realizarpedidos():
-    print("Menú Productos".center(36, "*"))
-    print("{0:<4}{1:<19}{2:^19}".format("ID", "Productos", "Precios"))
+    print("Menú Productos".center(31, "*"))
+    print("{0:<4}{3}{1:<19}{3}{2:^6}".format("ID", "Productos", "Precios", "|"))
     for i in prod:
-        print("{0:4}{1:<19}{2:^19}".format(i[0], i[1], i[2]))
-    print("Menú Extras".center(36, "*"))
-    print("{0:4}{1:<19}{2:^19}".format("ID", "Productos", "Precios"))
+        print("{0:<4}{3}{1:<19}{3}{2:>6}".format(i[0], i[1], i[2], "|"))
+    print("Menú Extras".center(31, "*"))
+    print("{0:4}{3}{1:<19}{3}{2:^6}".format("ID", "Productos", "Precios", "|"))
     for i in extras:
-        print("{0:4}{1:<19}{2:^19}".format(i[0], i[1], i[2]))
+        print("{0:<4}{3}{1:<19}{3}{2:>6}".format(i[0], i[1], i[2], "|"))
     while True:
         pass
 
