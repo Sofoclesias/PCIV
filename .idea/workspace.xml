@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="445d950a-c74e-4048-a83b-3c4bc20affe0" name="Changes" comment="Solo falta pedidos y pizza">
+    <list default="true" id="445d950a-c74e-4048-a83b-3c4bc20affe0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/PCIV.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PCIV.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pedidos.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pedidos.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/administrativos.py" beforeDir="false" afterPath="$PROJECT_DIR$/administrativos.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clases.py" beforeDir="false" afterPath="$PROJECT_DIR$/clases.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clientes.py" beforeDir="false" afterPath="$PROJECT_DIR$/clientes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/clientes.csv" beforeDir="false" afterPath="$PROJECT_DIR$/db/clientes.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/pedidos.csv" beforeDir="false" afterPath="$PROJECT_DIR$/db/pedidos.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lecturacsv.py" beforeDir="false" afterPath="$PROJECT_DIR$/lecturacsv.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prueba max.py" beforeDir="false" afterPath="$PROJECT_DIR$/prueba max.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,10 +34,10 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager" selected="Python.main">
-    <configuration name="administrativos" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="Pedidos" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PCIV" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -55,7 +49,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/administrativos.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Pedidos.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -151,10 +145,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.lecturacsv" />
+        <item itemvalue="Python.Pedidos" />
         <item itemvalue="Python.clientes" />
         <item itemvalue="Python.prueba max" />
-        <item itemvalue="Python.administrativos" />
-        <item itemvalue="Python.lecturacsv" />
       </list>
     </recent_temporary>
   </component>
@@ -419,7 +413,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668991478814</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="PEDIDOS">
+      <created>1669000225563</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1669000225563</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -452,7 +453,8 @@
     <MESSAGE value="estoy sufriendo" />
     <MESSAGE value="VIVA PERÚ" />
     <MESSAGE value="Solo falta pedidos y pizza" />
-    <option name="LAST_COMMIT_MESSAGE" value="Solo falta pedidos y pizza" />
+    <MESSAGE value="PEDIDOS" />
+    <option name="LAST_COMMIT_MESSAGE" value="PEDIDOS" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -464,12 +466,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/administrativos.py</url>
-          <line>12</line>
+          <line>13</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/administrativos.py</url>
-          <line>13</line>
+          <line>14</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
