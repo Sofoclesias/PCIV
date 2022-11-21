@@ -190,7 +190,7 @@ def menu_admin():
                                                                                         str(len(clientela[ix][7])),
                                                                                         clientela[ix][8]))
                         while True:
-                            ver = "¿Seguro que deseas eliminar este usuario? (y/n): "
+                            ver = input("¿Seguro que deseas eliminar este usuario? (y/n): ")
                             if ver == "n":
                                 break
                             elif ver == "y":
