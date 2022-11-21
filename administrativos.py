@@ -23,7 +23,141 @@ def menu_admin():
                                 Selecciona tu opción: '''))
                 print('\n', '#' * 50)
                 if op1 == 1:
-                    print("Pizzas")
+                    op2 = int(input('''
+                                                                        1. Visualizar pizzas
+                                                                        2. Añadir pizzas
+                                                                        3. Eliminar pizzas
+                                                                        4. Modificar pizzas
+                                                                        5. Salir
+
+                                                                        Selecciona tu opción: '''))
+
+                    if op2 == 1:
+                        print("Visualizando todas las pizzas.")
+                        zas = sorted(prod, key=lambda x: (x[2], x[3]), reverse=True)
+                        print("{0:<5s}{1:<20s}{2:>20s}{3:>20s}".format("ID", "Nombre", "Precio", "Cantidad"))
+
+                        for i in range(len(zas)):
+                            print("{0:<5s}{1:<20s}{2:>20s}{3:>20d}".format(str(zas[i][0]), zas[i][1], str(zas[i][2]),
+                                                                           zas[i][3]))
+                    elif op2 == 2:
+                        while True:
+                            try:
+                                nomx = input("Ingrese nombre de la pizza: ")
+                                px = float(input("Ingrese precio de la pizza: "))
+                                nx = int(input("Ingresar cantidad de pizzas que ofrecer: "))
+
+                                idx = len(prod) + 1
+                                print("\n{0:<20s}{1:>20s}{2:>20s}".format("Nombre", "Precio", "Cantidad"))
+                                print("{0:<20s}{1:>20s}{2:>20s}".format(nomx, str(px), str(nx)))
+
+                                ver = input("\n¿Seguro que deseas añadir esta pizza? (y/n): ").lower()
+                                if ver == "y":
+                                    actualizarcsv(csvpizzas, [idx, nomx, px, nx])
+                                    prod.append([idx, nomx, px, nx])
+                                    break
+                                else:
+                                    pass
+                            except:
+                                print("Ingrese datos válidos.")
+                    elif op2 == 3:
+                        zasFlag = True
+                        ix = None
+                        while zasFlag:
+                            zasx = input(
+                                "Ingrese el ID de la pizza que deseas eliminar (para cancelar,escribir n): ")
+                            if zasx == "n":
+                                zasFlag = False
+                                break
+                            if zasx != "n":
+                                for i in range(len(prod)):
+                                    if zasx == prod[i][0]:
+                                        ix = i
+                                        zasFlag = False
+                                        break
+
+                                if zasFlag:
+                                    print("No se ha encontrado la pizza. Inténtelo de nuevo.")
+                        if ix != None:
+                            print("\n{0:<20s}{1:>20s}{2:>20s}".format("Nombre", "Precio", "Cantidad"))
+                            print("{0:<20s}{1:>20s}{2:>20s}".format(prod[ix][1], prod[ix][2], prod[ix][3]))
+                            while True:
+                                ver = input("¿Seguro que deseas eliminar esta pizza? (y/n): ")
+                                if ver == "n":
+                                    break
+                                elif ver == "y":
+                                    eliminarfilacsv(csvpizzas, ix)
+                                    prod.pop(ix)
+                                    print("Pizza eliminada satisfactoriamente.")
+                                    break
+                    elif op2 == 4:
+                        zasFlag = True
+                        ix = None
+                        while zasFlag:
+                            zasx = input(
+                                "Ingrese el ID de la pizza que deseas modificar (para cancelar,escribir n): ")
+                            if zasx == "n":
+                                zasFlag = False
+                                break
+                            if zasx != "n":
+                                for i in range(len(prod)):
+                                    if zasx == prod[i][0]:
+                                        ix = i
+                                        zasFlag = False
+                                        break
+
+                                if zasFlag:
+                                    print("No se ha encontrado la pizza. Inténtelo de nuevo.")
+                        if ix != None:
+                            print("\n{0:<20s}{1:>20s}{2:>20s}".format("Nombre", "Precio", "Cantidad"))
+                            print("{0:<20s}{1:>20s}{2:>20s}".format(prod[ix][1], prod[ix][2], prod[ix][3]))
+                            while True:
+                                op3 = int(input('''¿Qué deseas modificar?
+                                                            1. Nombre
+                                                            2. Precio
+                                                            3. Cantidad
+                                                            4. Salir
+
+                                                            Selecciona tu opción: '''))
+                                if op3 == 1:
+                                    nomx = input("Ingrese nuevo nombre: ")
+                                    ver = input("¿Seguro que deseas cambiar el nombre de la pizza? (y/n): ")
+                                    if ver == "n":
+                                        break
+                                    elif ver == "y":
+                                        modificarvalorcsv(csvpizzas, nomx, ix, 1)
+                                        prod[ix][1] = nomx
+                                        print("Pizza actualizada.")
+                                        break
+                                elif op3 == 2:
+                                    px = float(input("Ingrese nuevo precio: "))
+                                    ver = input("¿Seguro que deseas cambiar el precio de la pizza? (y/n): ")
+                                    if ver == "n":
+                                        break
+                                    elif ver == "y":
+                                        modificarvalorcsv(csvpizzas, px, ix, 2)
+                                        prod[ix][2] = px
+                                        print("Pizza actualizada.")
+                                        break
+                                elif op3 == 3:
+                                    stockx = input("Ingrese nuevo stock: ")
+                                    ver = input("¿Seguro que deseas cambiar la cantidad de la pizza? (y/n): ")
+                                    if ver == "n":
+                                        break
+                                    elif ver == "y":
+                                        modificarvalorcsv(csvpizzas, stockx, ix, 3)
+                                        prod[ix][3] = stockx
+                                        print("Pizza actualizada.")
+                                        break
+                                elif op3 == 4:
+                                    break
+                                else:
+                                    print("Ingrese una opción válida.")
+
+                    elif op2 == 5:
+                        break
+                    else:
+                        print("Ingrese una opción válida.")
                 if op1 == 2:
                     op2 = int(input('''
                                                     1. Visualizar extras
@@ -45,15 +179,15 @@ def menu_admin():
                     elif op2 == 2:
                         while True:
                             try:
-                                nomx = input("Ingrese nombre de la pizza: ")
-                                px = float(input("Ingrese precio de la pizza: "))
-                                nx = int(input("Ingresar cantidad de pizzas que ofrecer: "))
+                                nomx = input("Ingrese nombre del extra: ")
+                                px = float(input("Ingrese precio del extra: "))
+                                nx = int(input("Ingresar cantidad de extra que ofrecer: "))
 
                                 idx = len(extras) + 1
                                 print("\n{0:<20s}{1:>20s}{2:>20s}".format("Nombre", "Precio", "Cantidad"))
                                 print("{0:<20s}{1:>20s}{2:>20s}".format(nomx, str(px), str(nx)))
 
-                                ver = input("\n¿Seguro que deseas añadir esta pizza? (y/n): ").lower()
+                                ver = input("\n¿Seguro que deseas añadir este extra? (y/n): ").lower()
                                 if ver == "y":
                                     actualizarcsv(csvextras, [idx, nomx, px, nx])
                                     extras.append([idx, nomx, px, nx])
@@ -67,7 +201,7 @@ def menu_admin():
                         ix = None
                         while exFlag:
                             exx = input(
-                                "Ingrese el ID de la pizza que deseas eliminar (para cancelar,escribir n): ")
+                                "Ingrese el ID del extra que deseas eliminar (para cancelar,escribir n): ")
                             if exx == "n":
                                 exFlag = False
                                 break
@@ -79,7 +213,7 @@ def menu_admin():
                                         break
 
                                 if exFlag:
-                                    print("No se ha encontrado al usuario. Inténtelo de nuevo.")
+                                    print("No se ha encontrado al extra. Inténtelo de nuevo.")
                         if ix != None:
                             print("\n{0:<20s}{1:>20s}{2:>20s}".format("Nombre", "Precio", "Cantidad"))
                             print("{0:<20s}{1:>20s}{2:>20s}".format(extras[ix][1], extras[ix][2], extras[ix][3]))
@@ -97,7 +231,7 @@ def menu_admin():
                         ix = None
                         while exFlag:
                             exx = input(
-                                "Ingrese el ID de la pizza que deseas modificar (para cancelar,escribir n): ")
+                                "Ingrese el ID de la extra que deseas modificar (para cancelar,escribir n): ")
                             if exx == "n":
                                 exFlag = False
                                 break
