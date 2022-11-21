@@ -11,7 +11,11 @@ def menu_admin():
         Selecciona tu opción: '''))
         print('\n', '#' * 50)
         if op0 == 1:
-            print("Pedidos")
+            op1 = int(input('''
+                    1. Ver pedidos por resolver
+                    2. Borrar
+
+                    Selecciona tu opción: '''))
 
         elif op0 == 2:
             while True:

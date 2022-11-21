@@ -105,7 +105,7 @@ def refPago():
                 n = add
             cardx[-i] = n
 
-        if sum(cardx) % 10 == 0:
+        if sum(cardx) % 10 == 0 and card_type != None:
             print("¡Tarjeta identificada y registrada satisfactoriamente!")
 
             infocard = card_type + "|" + str(card) + "|" + "|" + fven + "|" + str(cvv)
@@ -186,6 +186,7 @@ def register():
 
     ## REFERIDO
     flag = True
+    ix = None
     while flag == True:
         ref = input('Ingrese el usuario que le refirió sobre el sistema (de no haber, escribir "n"): ')
         if ref == "n":
@@ -197,12 +198,12 @@ def register():
                     print("¡Cliente {} encontrado!".format(clientela[i][1]))
                     clientela[i][8] = int(clientela[i][8]) + 1
 
-                    modificarvalorcsv(csvclientes, clientela, clientela[i][8], i, 8)
+                    modificarvalorcsv(csvclientes, clientela[i][8], i, 8)
 
                     flag = False
                     break
-                else:
-                    print("No se ha encontrado al usuario. Inténtelo de nuevo.")
+            if flag:
+                print("No se ha encontrado al usuario. Inténtelo de nuevo.")
     print("¡Cuenta creada satisfactoriamente!")
 
     ## Creación de la clase
@@ -216,11 +217,13 @@ csvclientes = os.path.dirname(os.path.realpath(__file__)) + '\db\clientes.csv'
 csvadmin = os.path.dirname(os.path.realpath(__file__)) + '\db\ladmin.csv'
 csvpizzas = os.path.dirname(os.path.realpath(__file__)) + '\db\pizzas.csv'
 csvextras = os.path.dirname(os.path.realpath(__file__)) + '\db\extras.csv'
+csvpedidos = os.path.dirname(os.path.realpath(__file__)) + '\db\pedidos.csv'
 
 admin = excludecsvformat(copycsv(csvadmin))
 clientela = excludecsvformat(copycsv(csvclientes))
 prod = excludecsvformat(copycsv(csvpizzas))
 extras = excludecsvformat(copycsv(csvextras))
+pedidos = excludecsvformat(copycsv(csvpedidos))
 
 for i in range(len(prod)):
     prod[i] = [int(prod[i][0]), prod[i][1], float(prod[i][2]), int(prod[i][3])]

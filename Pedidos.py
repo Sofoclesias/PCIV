@@ -1,7 +1,23 @@
 from random import *
 from lecturacsv import *
 
+def transcribir(lista):
+    if len(lista) == 1:
+        constxt = ""
+        for i in range(len(lista[0]) - 1):
+            constxt += str(lista[0][i]) + "-"
+        constxt += str(lista[0][len(lista[0]) - 1])
+    else:
+        constxt = ""
+        for i in range(len(lista) - 1):
+            txt = ""
+            for j in range(len(lista[0]) - 1):
+                txt += str(lista[i][j]) + "-"
+            txt += str(lista[i][len(lista[0]) - 1])
+            constxt += txt + "|"
+        constxt += txt
 
+    return constxt
 
 
 def lista_pedido(pedido_global):
@@ -45,7 +61,7 @@ def realizarpedidos(usux, contx):
                                 print("Ingrese una cantidad válida")
                         for i in prod:
                             if int(opcprod) == i[0]:
-                                carritoprod.append([i[1], "{} unidades".format(cantidad), "precio: {}".format(i[2])])
+                                carritoprod.append([i[1], "{}".format(cantidad), "{}".format(i[2])])
                                 precio.append(round(i[2] * cantidad, 1))
                     break
                 else:
@@ -80,7 +96,7 @@ def realizarpedidos(usux, contx):
                                 print("Ingrese una cantidad válida")
                         for i in extras:
                             if int(opcext) == i[0]:
-                                carritoext.append([i[1], "{} unidades".format(cantidad), "precio: {}".format(i[2])])
+                                carritoext.append([i[1], "{}".format(cantidad), "{}".format(i[2])])
                                 precio.append(round(i[2] * cantidad, 1))
                     break
                 else:
@@ -110,10 +126,15 @@ def realizarpedidos(usux, contx):
             if numero_referido > 0:
                 clientela[i][8] = int(clientela[i][8]) - 1
                 px = px - 0.50
+                modificarvalorcsv(csvclientes, clientela[i][8], i, 8)
+
             else:
                 pass
 
     print("El nuevo precio tras el descuento de referidos es: ", px)
+
+    pedcsvx = [codigo, usux, transcribir(carritoprod), transcribir(carritoext), sum(precio)]
+    actualizarcsv(csvpedidos, pedcsvx)
     return pedido_global
 
 

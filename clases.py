@@ -1,10 +1,10 @@
 from datetime import *
 class Personas:
     def __init__(self, dnix, nomx, apex, edx):
-        self.DNI = dnix
-        self.nombres = nomx
-        self.apellidos = apex
-        self.edad = edx
+        self.__DNI = dnix
+        self.__nombres = nomx
+        self.__apellidos = apex
+        self.__edad = edx
 
     def getDNI(self):
         return self.DNI
@@ -34,7 +34,7 @@ class Personas:
 class Pizzero(Personas):
     def __init__(self, dnix, nomx, apex, edx, contx):
         super().__init__(dnix, nomx, apex, edx)
-        self.password = contx
+        self.__password = contx
 
     def getPassword(self):
         return self.password
@@ -46,12 +46,12 @@ class Pizzero(Personas):
 class Cliente(Personas):
     def __init__(self, dnix, nomx, apex, edx, usux, contx, meth, pedx, refx):
         super().__init__(dnix, nomx, apex, edx)
-        self.usuario = usux
-        self.contraseña = contx
+        self.__usuario = usux
+        self.__contraseña = contx
         if meth == None:
-            self.numero_de_cuenta = None
+            self.__numero_de_cuenta = None
         else:
-            self.numero_de_cuenta = meth
+            self.__numero_de_cuenta = meth
         self.pedido = pedx
         self.ref = refx
 

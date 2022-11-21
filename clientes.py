@@ -9,6 +9,7 @@ def menu_clientes(usux, contx):
             cliente_creacion = cl.Cliente(lec.clientela[i][0], lec.clientela[i][1], lec.clientela[i][2],
                                           lec.clientela[i][3], lec.clientela[i][4], lec.clientela[i][5],
                                           lec.clientela[i][6], lec.clientela[i][7], lec.clientela[i][8])
+            ix = i
     while True:
         while True:
             try:
@@ -30,13 +31,12 @@ def menu_clientes(usux, contx):
             break
         if opcion == 1:
             while True:
+                print("{0:^10} {1:^10} {2:^10} {3:^10}".format("DNI", "NOMBRE", "APELLIDO", "EDAD"))
+                print("{0:^10} {1:^10} {2:^10} {3:^10}".format(lec.clientela[ix][0], lec.clientela[ix][1],
+                                                               lec.clientela[ix][2], lec.clientela[ix][3]))
+
                 while True:
                     try:
-                        print("{0:^10} {1:^10} {2:^10} {3:^10}".format("DNI", "NOMBRE", "APELLIDO", "EDAD"))
-                        print("{0:^10} {1:^10} {2:^10} {3:^10}".format(cliente_creacion.getDNI(),
-                                                                       cliente_creacion.getNombres()
-                                                                       , cliente_creacion.getApellidos(),
-                                                                       cliente_creacion.getEdad()))
                         rpta = int(input("¿que desea hacer?\n"
                                          "1.cambiar metodo de pago\n"
                                          "2.cambiar DNI\n"
@@ -45,12 +45,9 @@ def menu_clientes(usux, contx):
                                          "5.cambiar edad\n"
                                          "6.salir\n"
                                          "ingrese una opción: "))
-                        if str(opcion) in "12345":
-                            break
-                        else:
-                            print("escriba una opción correcta\n")
+                        break
                     except:
-                        print("escriba una opción correcta\n")
+                        print("Ingrese una opción válida: ")
 
                 if rpta == 6:
                     break
