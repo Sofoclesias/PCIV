@@ -102,6 +102,4 @@ def menu_clientes(usux, contx):
                     cliente_creacion.setEdad(nuevo_dni)
 
         if opcion == 2:
-            cliente_creacion.setpedido(ped.realizarpedidos(usux, contx))
-            print("Realizar pago:")
-            ped.realizar_pago(cliente_creacion)
+            ped.realizarpedidos(usux, contx)
