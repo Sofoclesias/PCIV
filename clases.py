@@ -66,3 +66,6 @@ class Cliente(Personas):
 
     def setnumero_de_cuenta(self, nuevo_numero_de_cuenta):
         self.numero_de_cuenta = nuevo_numero_de_cuenta
+
+    def setpedido(self, x):
+        self.pedido = x

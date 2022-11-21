@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="445d950a-c74e-4048-a83b-3c4bc20affe0" name="Changes" comment="" />
+    <list default="true" id="8743303e-c65d-429c-becd-6ac5437aee3b" name="Changes" comment="5421">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pedidos.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pedidos.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/administrativos.py" beforeDir="false" afterPath="$PROJECT_DIR$/administrativos.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clases.py" beforeDir="false" afterPath="$PROJECT_DIR$/clases.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clientes.py" beforeDir="false" afterPath="$PROJECT_DIR$/clientes.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,7 +36,7 @@
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.Pedidos">
+  <component name="RunManager" selected="Python.main">
     <configuration name="Pedidos" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PCIV" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -138,9 +144,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main" />
         <item itemvalue="Python.Pedidos" />
         <item itemvalue="Python.probando" />
-        <item itemvalue="Python.main" />
         <item itemvalue="Python.Referidos" />
         <item itemvalue="Python.Tarjetas" />
       </list>
@@ -372,7 +378,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668982668433</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="5421">
+      <created>1668987518493</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1668987518493</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -400,7 +413,8 @@
     <MESSAGE value="actualizando cosas127" />
     <MESSAGE value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
     <MESSAGE value="pedidos 13" />
-    <option name="LAST_COMMIT_MESSAGE" value="pedidos 13" />
+    <MESSAGE value="5421" />
+    <option name="LAST_COMMIT_MESSAGE" value="5421" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">

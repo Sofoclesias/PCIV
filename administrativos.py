@@ -151,6 +151,3 @@ def menu_admin():
             break
         else:
             print(' Ingresa una opcion del menú')
-
-
-menu_admin()

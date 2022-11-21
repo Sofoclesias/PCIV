@@ -2,12 +2,24 @@ from random import *
 from lecturacsv import *
 
 
-carritoprod = []
-carritoext = []
-precio = []
+
+
+def lista_pedido(pedido_global):
+    print("el código del pedido es {}".format(pedido_global[0]).center(80, " "))
+
+    print("Pizzas: ".center(80, "*"))
+    for x in pedido_global[1]:
+        print("{0:<25}{1:^25}{2:^25}".format(x[0], x[1], x[2]))
+    if len(pedido_global[2]) > 0:
+        print(" Extras: ".center(80, "*"))
+        for x in pedido_global[2]:
+            print("{0:<25}{1:^25}{2:^25}".format(x[0], x[1], x[2]))
 
 
 def realizarpedidos(usux, contx):
+    carritoprod = []
+    carritoext = []
+    precio = []
     while True:
         while True:
             try:
@@ -55,23 +67,21 @@ def realizarpedidos(usux, contx):
                 print("\n")
                 if 0 <= opcext <= len(extras):
                     if opcext > 0:
-                        try:
-                            gramos = int(input("Ingrese las unidades extras: "))
-                            for i in extras:
-                                if int(opcext) == i[0]:
-                                    maximo = i[3]
-                            if 0 < gramos <= maximo:
-                                break
-                            else:
-                                print("no hay stock suficiente")
-                        except:
-                            print("esciba una opción valida")
-                            pass
-
+                        print("¿Cuántas unidades?")
+                        while True:
+                            try:
+                                cantidad = int(input("Ingrese la cantidad de pizzas: "))
+                                for i in extras:
+                                    if int(opcext) == i[0]:
+                                        maximo = i[3]
+                                if 0 < cantidad <= maximo:
+                                    break
+                            except:
+                                print("Ingrese una cantidad válida")
                         for i in extras:
                             if int(opcext) == i[0]:
-                                carritoext.append([i[1], "{} unidades".format(gramos), "precio: {}".format(i[2])])
-                                precio.append(round(i[2] * gramos, 1))
+                                carritoext.append([i[1], "{} unidades".format(cantidad), "precio: {}".format(i[2])])
+                                precio.append(round(i[2] * cantidad, 1))
                     break
                 else:
                     print("Ingrese una opción válida\n")
@@ -79,25 +89,21 @@ def realizarpedidos(usux, contx):
                 print("Ingrese una opcion válida\n")
         if opcext == 0:
             break
+
     ran = str(randint(1, 99999999))
     if len(ran) < 8:
         ran = ran.zfill(8)
     codigo = "P" + ran
-    print("el código del pedido es {}".format(codigo).center(80, " "))
+    pedido_global = [codigo, carritoprod, carritoext]
+    print(carritoext)
 
-    print("Pizzas: ".center(80, "*"))
-    for x in carritoprod:
-        print("{0:<25}{1:^25}{2:^25}".format(x[0], x[1], x[2]))
-    if len(carritoext) > 0:
-        print(" Extras: ".center(80, "*"))
-        for x in carritoext:
-            print("{0:<25}{1:^25}{2:^25}".format(x[0], x[1], x[2]))
+    lista_pedido(pedido_global)
+
     print(" Precio total:", sum(precio))
 
     px = sum(precio)
     for i in range(len(clientela)):
         if usux == clientela[i][4] and contx == clientela[i][5]:
-            print("hola")
             numero_referido = int(clientela[i][8])
             print("Puntos de referido: ", numero_referido)
 
@@ -108,6 +114,14 @@ def realizarpedidos(usux, contx):
                 pass
 
     print("El nuevo precio tras el descuento de referidos es: ", px)
-
-    pedido_global = [codigo, carritoprod, carritoext]
     return pedido_global
+
+
+def realizar_pago(x):
+    print("{0:50}".format("su pedido es:"))
+    lista_pedido(x.pedido)
+    if x.numero_de_cuenta == "None" or x.numero_de_cuenta == None:
+        print("usted no tiene una tarjeta de pago")
+        x.setnumero_de_cuenta(refPago())
+    else:
+        print("el pago a sido exitoso")
