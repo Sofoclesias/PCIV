@@ -23,13 +23,15 @@ def transcribir(lista):
 
 
 def lista_pedido(pedido_global):
-    print("el código del pedido es {}".format(pedido_global[0]).center(80, " "))
+    print("El código del pedido es {}".format(pedido_global[0]).center(80, " "))
 
     print("Pizzas: ".center(80, "*"))
     for x in pedido_global[1]:
+        print("{0:<25}{1:^25}{2:^25}".format("Producto", "Stock", "Precio"))
         print("{0:<25}{1:^25}{2:^25}".format(x[0], x[1], x[2]))
     if len(pedido_global[2]) > 0:
         print(" Extras: ".center(80, "*"))
+        print("{0:<25}{1:^25}{2:^25}".format("Producto", "Stock", "Precio"))
         for x in pedido_global[2]:
             print("{0:<25}{1:^25}{2:^25}".format(x[0], x[1], x[2]))
 
@@ -228,12 +230,13 @@ def menu_clientes(usux, contx):
         while True:
             while True:
 
-                opcion = int(input("¿Qué desea realizar?: \n"
-                                   "1. Actualizar datos\n"
-                                   "2. Realizar un pedido\n"
-                                   "3. Salir\n"
+                opcion = int(input("            ¿Qué desea realizar?: \n"
+                                   "            1. Actualizar datos\n"
+                                   "            2. Realizar un pedido\n"
+                                   "            3. Salir\n"
                                    "\n"
-                                   "Selecciona una opción: "))
+                                   "            Selecciona una opción: "))
+                print('\n', '#' * 50)
                 if opcion == 3:
                     break
                 elif opcion == 1:
@@ -242,14 +245,15 @@ def menu_clientes(usux, contx):
                         print("{0:<20} {1:>20} {2:>20} {3:>20}".format(yo[0], yo[1], yo[2], yo[3]))
 
                         try:
-                            rpta = int(input("\n¿Qué desea hacer?:\n\n"
-                                             "1. Cambiar método de pago\n"
-                                             "2. Cambiar DNI\n"
-                                             "3. Cambiar nombre\n"
-                                             "4. Cambiar apellidos\n"
-                                             "5. Cambiar edad\n"
-                                             "6. Salir\n"
-                                             "ingrese una opción: "))
+                            rpta = int(input("\n            ¿Qué desea hacer?:\n\n"
+                                             "            1. Cambiar método de pago\n"
+                                             "            2. Cambiar DNI\n"
+                                             "            3. Cambiar nombre\n"
+                                             "            4. Cambiar apellidos\n"
+                                             "            5. Cambiar edad\n"
+                                             "            6. Salir\n"
+                                             "            Ingrese una opción: "))
+                            print('\n', '#' * 50)
                         except:
                             print("Ingrese una opción válida. ")
 

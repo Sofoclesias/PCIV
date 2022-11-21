@@ -14,37 +14,28 @@ def menu_admin():
             print('\n', '#' * 50)
             if op0 == 1:
                 op1 = int(input('''
-                        1. Ver pedidos por resolver
-                        2. Borrar
-                        3. Salir
+            1. Ver pedidos por resolver
+            2. Borrar
+            3. Salir
     
-                        Selecciona tu opción: '''))
+            Selecciona tu opción: '''))
                 print('\n', '#' * 50)
                 if op1 == 1:
                     print("Pedidos por resolver")
                     zas = sorted(pedidos, key=lambda x: (x[3], x[4]), reverse=True)
                     print(
-                        "{0:<10s}{1:<20s}{2:>30s}{3:>20s}{4:>20s}".format("ID", "Usuario", "Pizza", "Extras", "Monto"))
+                        "{0:<10s}{1:<20s}{2:>30s}".format("ID", "Usuario", "Monto"))
 
                     for i in range(len(zas)):
-                        a = []
-                        b = ""
-                        for j in range(len(zas[i][2])):
-                            if zas[i][2][j] == "|":
-                                a.append(b)
-                                b = ""
-                            else:
-                                b = b + zas[i][2][j]
-                        a.append(b)
-                        print("{0:<10s}{1:<20s}{2:>30s}{3:>20s}{4:>20s}".format(str(zas[i][0]), zas[i][1], str(a),
-                                                                                zas[i][3], str(zas[i][4])))
+                        print("{0:<10s}{1:<20s}{2:>30s}".format(str(zas[i][0]), zas[i][1], str(zas[i][4])))
                 elif op1 == 2:
-                    print("Ingrese el pedido a borrar")
+                    print("Ingrese el pedido a borrar: ")
                     o = input("")
                     zas = sorted(pedidos, key=lambda x: (x[2], x[3]), reverse=True)
                     for i in range(len(zas)):
                         if zas[i][0] == o:
                             eliminarfilacsv(csvpedidos, i)
+                            pedidos.pop(i)
                             break
                         else:
                             print("Ingrese un pedido válido")
@@ -55,22 +46,22 @@ def menu_admin():
             elif op0 == 2:
                 while True:
                     op1 = int(input('''
-                                    1. Pizzas
-                                    2. Extras
-                                    3. Salir
+            1. Pizzas
+            2. Extras
+            3. Salir
     
-                                    Selecciona tu opción: '''))
+            Selecciona tu opción: '''))
                     print('\n', '#' * 50)
                     if op1 == 1:
                         op2 = int(input('''
-                                                                            1. Visualizar pizzas
-                                                                            2. Añadir pizzas
-                                                                            3. Eliminar pizzas
-                                                                            4. Modificar pizzas
-                                                                            5. Salir
+            1. Visualizar pizzas
+            2. Añadir pizzas
+            3. Eliminar pizzas
+            4. Modificar pizzas
+            5. Salir
     
-                                                                            Selecciona tu opción: '''))
-
+            Selecciona tu opción: '''))
+                        print('\n', '#' * 50)
                         if op2 == 1:
                             print("Visualizando todas las pizzas.")
                             zas = sorted(prod, key=lambda x: (x[2], x[3]), reverse=True)
@@ -154,13 +145,14 @@ def menu_admin():
                                 print("{0:<20s}{1:>20s}{2:>20s}".format(str(prod[ix][1]), str(prod[ix][2]),
                                                                         str(prod[ix][3])))
                                 while True:
-                                    op3 = int(input('''¿Qué deseas modificar?
-                                                                1. Nombre
-                                                                2. Precio
-                                                                3. Cantidad
-                                                                4. Salir
+                                    op3 = int(input('''            ¿Qué deseas modificar?
+            1. Nombre
+            2. Precio
+            3. Cantidad
+            4. Salir
     
-                                                                Selecciona tu opción: '''))
+            Selecciona tu opción: '''))
+                                    print('\n', '#' * 50)
                                     if op3 == 1:
                                         nomx = input("Ingrese nuevo nombre: ")
                                         ver = input("¿Seguro que deseas cambiar el nombre de la pizza? (y/n): ")
@@ -202,14 +194,14 @@ def menu_admin():
                             print("Ingrese una opción válida.")
                     if op1 == 2:
                         op2 = int(input('''
-                                                        1. Visualizar extras
-                                                        2. Añadir extras
-                                                        3. Eliminar extras
-                                                        4. Modificar extras
-                                                        5. Salir
+            1. Visualizar extras
+            2. Añadir extras
+            3. Eliminar extras
+            4. Modificar extras
+            5. Salir
     
-                                                        Selecciona tu opción: '''))
-
+            Selecciona tu opción: '''))
+                        print('\n', '#' * 50)
                         if op2 == 1:
                             print("Visualizando todos los extras.")
                             ex = sorted(extras, key=lambda x: (x[2], x[3]), reverse=True)
@@ -292,13 +284,14 @@ def menu_admin():
                                 print("{0:<20s}{1:>20s}{2:>20s}".format(str(extras[ix][1]), str(extras[ix][2]),
                                                                         str(extras[ix][3])))
                                 while True:
-                                    op3 = int(input('''¿Qué deseas modificar?
-                                            1. Nombre
-                                            2. Precio
-                                            3. Cantidad
-                                            4. Salir
+                                    op3 = int(input('''            ¿Qué deseas modificar?
+            1. Nombre
+            2. Precio
+            3. Cantidad
+            4. Salir
     
-                                            Selecciona tu opción: '''))
+            Selecciona tu opción: '''))
+                                    print('\n', '#' * 50)
                                     if op3 == 1:
                                         nomx = input("Ingrese nuevo nombre: ")
                                         ver = input("¿Seguro que deseas cambiar el nombre del extra? (y/n): ")
@@ -344,9 +337,9 @@ def menu_admin():
             elif op0 == 3:
                 while True:
                     op1 = int(input('''
-                    1. Visualizar clientes
-                    2. Eliminar clientes
-                    3. Salir
+            1. Visualizar clientes
+            2. Eliminar clientes
+            3. Salir
     
                     Selecciona tu opción: '''))
                     print('\n', '#' * 50)
@@ -354,12 +347,12 @@ def menu_admin():
                     if op1 == 1:
                         while True:
                             op2 = int(input('''
-                                            1. Visualizar todo
-                                            2. Filtrar por clientes con pedidos
-                                            3. Filtrar por clientes con puntos
-                                            4. Salir
+            1. Visualizar todo
+            2. Filtrar por clientes con pedidos
+            3. Filtrar por clientes con puntos
+            4. Salir
     
-                                            Selecciona tu opción: '''))
+            Selecciona tu opción: '''))
                             print('\n', '#' * 50)
                             if op2 == 1:
                                 print("Visualizando todos los clientes")
