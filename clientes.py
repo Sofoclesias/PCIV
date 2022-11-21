@@ -1,6 +1,7 @@
-import clases as cl
+# import clases as cl
 from lecturacsv import *
 from random import *
+import copy
 
 
 def transcribir(lista):
@@ -37,40 +38,55 @@ def realizarpedidos(yo, ix):
     carritoprod = []
     carritoext = []
     precio = []
+
+    muestraprod = copy.deepcopy(prod)
+    muestraextra = copy.deepcopy(extras)
     while True:
-        while True:
-            try:
-                print("Menú Productos".center(31, "*"))
-                print("{0:<4}{3}{1:<19}{3}{2:^6}{4:^8}".format("ID", "Productos", "Precios", "|", "stock"))
-                for i in prod:
-                    print("{0:<4}{3}{1:<19}{3}{2:>6}{4:^10}".format(i[0], i[1], i[2], "|", i[3]))
-                print("Si desea salir, ingrese 0\n")
-                opcprod = int(input("¿Qué producto desea ordenar? "))
-                print("\n")
-                if 0 <= opcprod <= len(prod):
-                    if opcprod > 0:
-                        print("¿Cuántas unidades?")
-                        while True:
-                            try:
-                                cantidad = int(input("Ingrese la cantidad de pizzas: "))
-                                for i in prod:
-                                    if int(opcprod) == i[0]:
-                                        maximo = i[3]
-                                if 0 < cantidad <= maximo:
-                                    break
-                            except:
-                                print("Ingrese una cantidad válida")
-                        for i in prod:
-                            if int(opcprod) == i[0]:
-                                carritoprod.append([i[1], "{}".format(cantidad), "{}".format(i[2])])
-                                precio.append(round(i[2] * cantidad, 1))
-                    break
-                else:
-                    print("Ingrese una opción válida\n")
-            except:
-                print("Ingrese una opcion válida\n")
-        if opcprod == 0:
-            break
+        try:
+            print("Menú Productos".center(31, "*"))
+            print("{0:<4}{3}{1:<19}{3}{2:^6}{4:^8}".format("ID", "Productos", "Precios", "|", "stock"))
+
+            for i in muestraprod:
+                print("{0:<4}{3}{1:<19}{3}{2:>6}{4:^10}".format(i[0], i[1], i[2], "|", i[3]))
+            print("Si desea salir, ingrese 0.\n")
+            opcprod = int(input("¿Qué producto desea ordenar?: "))
+            print("\n")
+            if 0 < opcprod <= len(prod):
+                if muestraprod[opcprod - 1][3] == 0:
+                    print("No hay unidades disponibles.")
+                if muestraprod[opcprod - 1][3] > 0:
+                    print("¿Cuántas unidades?")
+                    while True:
+                        try:
+                            cantidad = int(input("Ingrese la cantidad de pizzas: "))
+                            for i in muestraprod:
+                                if int(opcprod) == i[0]:
+                                    maximo = i[3]
+                            if 0 < cantidad <= maximo:
+                                break
+                        except:
+                            print("Ingrese una cantidad válida")
+                    for i in range(len(muestraprod)):
+                        if int(opcprod) == muestraprod[i][0]:
+                            muestraprod[i][3] -= cantidad
+
+                            inCar = True
+                            for j in range(len(carritoprod)):
+                                if int(opcprod) == int(carritoprod[j][0]):
+                                    carritoprod[j][3] += cantidad
+                                    precio[j] += round(muestraprod[i][2] * cantidad, 1)
+                                    inCar = False
+
+                            if inCar:
+                                carritoprod.append(
+                                    [muestraprod[i][1], "{}".format(cantidad), "{}".format(muestraprod[i][2])])
+                                precio.append(round(muestraprod[i][2] * cantidad, 1))
+            elif opcprod == 0:
+                break
+            else:
+                print("Ingrese una opción válida\n")
+        except:
+            print("Ingrese una opcion válida\n")
 
     while True:
         while True:
@@ -181,106 +197,109 @@ def realizar_pago(listpedidos, yo, ix):
 
 
 def menu_clientes(usux, contx):
-    for i in range(len(clientela)):
-        if usux == clientela[i][4] and contx == clientela[i][5]:
-            yo = clientela[i]
-            ix = i
-            cliente_creacion = cl.Cliente(clientela[i][0], clientela[i][1], clientela[i][2],
-                                          clientela[i][3], clientela[i][4], clientela[i][5],
-                                          clientela[i][6], clientela[i][7], clientela[i][8])
-    while True:
+    try:
+        for i in range(len(clientela)):
+            if usux == clientela[i][4] and contx == clientela[i][5]:
+                yo = clientela[i]
+                ix = i
+                cliente_creacion = cl.Cliente(clientela[i][0], clientela[i][1], clientela[i][2],
+                                              clientela[i][3], clientela[i][4], clientela[i][5],
+                                              clientela[i][6], clientela[i][7], clientela[i][8])
         while True:
+            while True:
 
-            opcion = int(input("¿Qué desea realizar?: \n"
-                               "1. Actualizar datos\n"
-                               "2. Realizar un pedido\n"
-                               "3. Salir\n"
-                               "\n"
-                               "Selecciona una opción: "))
-            if opcion == 3:
-                break
-            elif opcion == 1:
-                while True:
-                    print("{0:<20} {1:>20} {2:>20} {3:>20}".format("DNI", "NOMBRE", "APELLIDO", "EDAD"))
-                    print("{0:<20} {1:>20} {2:>20} {3:>20}".format(yo[0], yo[1], yo[2], yo[3]))
+                opcion = int(input("¿Qué desea realizar?: \n"
+                                   "1. Actualizar datos\n"
+                                   "2. Realizar un pedido\n"
+                                   "3. Salir\n"
+                                   "\n"
+                                   "Selecciona una opción: "))
+                if opcion == 3:
+                    break
+                elif opcion == 1:
+                    while True:
+                        print("{0:<20} {1:>20} {2:>20} {3:>20}".format("DNI", "NOMBRE", "APELLIDO", "EDAD"))
+                        print("{0:<20} {1:>20} {2:>20} {3:>20}".format(yo[0], yo[1], yo[2], yo[3]))
 
-                    try:
-                        rpta = int(input("\n¿Qué desea hacer?:\n\n"
-                                         "1. Cambiar método de pago\n"
-                                         "2. Cambiar DNI\n"
-                                         "3. Cambiar nombre\n"
-                                         "4. Cambiar apellidos\n"
-                                         "5. Cambiar edad\n"
-                                         "6. Salir\n"
-                                         "ingrese una opción: "))
-                    except:
-                        print("Ingrese una opción válida. ")
+                        try:
+                            rpta = int(input("\n¿Qué desea hacer?:\n\n"
+                                             "1. Cambiar método de pago\n"
+                                             "2. Cambiar DNI\n"
+                                             "3. Cambiar nombre\n"
+                                             "4. Cambiar apellidos\n"
+                                             "5. Cambiar edad\n"
+                                             "6. Salir\n"
+                                             "ingrese una opción: "))
+                        except:
+                            print("Ingrese una opción válida. ")
 
-                    if rpta == 6:
-                        break
-                    elif rpta == 1:
-                        modificarvalorcsv(csvclientes, refPago(), ix, 6)
-                    elif rpta == 2:
-                        while True:
-                            try:
-                                nuevo_dni = input("Ingrese el nuevo DNI: ")
-                                if len(nuevo_dni) == 8 and int(nuevo_dni) > 0:
-                                    modificarvalorcsv(csvclientes, nuevo_dni, ix, 0)
-                                    yo[0], clientela[ix][0] = nuevo_dni, nuevo_dni
-                                    break
-                                else:
+                        if rpta == 6:
+                            break
+                        elif rpta == 1:
+                            modificarvalorcsv(csvclientes, refPago(), ix, 6)
+                        elif rpta == 2:
+                            while True:
+                                try:
+                                    nuevo_dni = input("Ingrese el nuevo DNI: ")
+                                    if len(nuevo_dni) == 8 and int(nuevo_dni) > 0:
+                                        modificarvalorcsv(csvclientes, nuevo_dni, ix, 0)
+                                        yo[0], clientela[ix][0] = nuevo_dni, nuevo_dni
+                                        break
+                                    else:
+                                        print("Escriba un DNI válido.")
+                                except:
                                     print("Escriba un DNI válido.")
-                            except:
-                                print("Escriba un DNI válido.")
 
-                    elif rpta == 3:
-                        while True:
-                            try:
-                                nuevo_nombre = input("Ingrese el nuevo nombre: ")
-                                if len(nuevo_nombre) != nuevo_nombre.count(" ") and tiene_numeros(
-                                        nuevo_nombre) == False:
-                                    modificarvalorcsv(csvclientes, nuevo_nombre, ix, 1)
-                                    yo[1], clientela[ix][1] = nuevo_nombre, nuevo_nombre
-                                    break
-                                else:
+                        elif rpta == 3:
+                            while True:
+                                try:
+                                    nuevo_nombre = input("Ingrese el nuevo nombre: ")
+                                    if len(nuevo_nombre) != nuevo_nombre.count(" ") and tiene_numeros(
+                                            nuevo_nombre) == False:
+                                        modificarvalorcsv(csvclientes, nuevo_nombre, ix, 1)
+                                        yo[1], clientela[ix][1] = nuevo_nombre, nuevo_nombre
+                                        break
+                                    else:
+                                        print("Escriba un nombre válido.")
+                                except:
                                     print("Escriba un nombre válido.")
-                            except:
-                                print("Escriba un nombre válido.")
 
-                    elif rpta == 4:
-                        while True:
-                            try:
-                                nuevo_apellido = input("Ingrese el nuevo apellido: ")
-                                if len(nuevo_apellido) != nuevo_apellido.count(" ") and tiene_numeros(
-                                        nuevo_apellido) == False:
-                                    modificarvalorcsv(csvclientes, nuevo_apellido, ix, 2)
-                                    yo[2], clientela[ix][2] = nuevo_apellido, nuevo_apellido
-                                    break
-                                else:
-                                    print("Escriba un apellido válido.")
-                            except:
-                                print("Escriba un nombre válido.")
+                        elif rpta == 4:
+                            while True:
+                                try:
+                                    nuevo_apellido = input("Ingrese el nuevo apellido: ")
+                                    if len(nuevo_apellido) != nuevo_apellido.count(" ") and tiene_numeros(
+                                            nuevo_apellido) == False:
+                                        modificarvalorcsv(csvclientes, nuevo_apellido, ix, 2)
+                                        yo[2], clientela[ix][2] = nuevo_apellido, nuevo_apellido
+                                        break
+                                    else:
+                                        print("Escriba un apellido válido.")
+                                except:
+                                    print("Escriba un nombre válido.")
 
 
-                    elif rpta == 5:
-                        while True:
-                            try:
-                                nuevo_edad = int(input("Ingrese la nueva edad: "))
-                                if nuevo_edad >= 18:
-                                    modificarvalorcsv(csvclientes, nuevo_edad, ix, 3)
-                                    yo[3], clientela[ix][3] = nuevo_edad, nuevo_edad
-                                    break
-                                else:
+                        elif rpta == 5:
+                            while True:
+                                try:
+                                    nuevo_edad = int(input("Ingrese la nueva edad: "))
+                                    if nuevo_edad >= 18:
+                                        modificarvalorcsv(csvclientes, nuevo_edad, ix, 3)
+                                        yo[3], clientela[ix][3] = nuevo_edad, nuevo_edad
+                                        break
+                                    else:
+                                        print("Escriba una edad válida.")
+                                except:
                                     print("Escriba una edad válida.")
-                            except:
-                                print("Escriba una edad válida.")
 
-                    else:
-                        print("Ingrese una opción válida: ")
+                        else:
+                            print("Ingrese una opción válida: ")
 
-            elif opcion == 2:
-                listpedidos = realizarpedidos(yo, ix)
-                realizar_pago(listpedidos, yo, ix)
+                elif opcion == 2:
+                    listpedidos = realizarpedidos(yo, ix)
+                    realizar_pago(listpedidos, yo, ix)
 
-            else:
-                print("Escriba una opción válida.\n")
+                else:
+                    print("Escriba una opción válida.\n")
+    except:
+        print("Escriba una opción válida.\n")
