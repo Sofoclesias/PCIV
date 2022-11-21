@@ -1,8 +1,5 @@
 from lecturacsv import *
 
-print(clientela)
-
-
 def menu_admin():
     while True:
         op0 = int(input('''
@@ -40,10 +37,11 @@ def menu_admin():
                     if op2 == 1:
                         print("Visualizando todos los extras.")
                         ex = sorted(extras, key=lambda x: (x[2], x[3]), reverse=True)
-                        print("{0:<20s}{1:>20s}{2:>20s}".format("Nombre", "Precio", "Cantidad"))
+                        print("{0:<5s}{1:<20s}{2:>20s}{3:>20s}".format("ID", "Nombre", "Precio", "Cantidad"))
 
                         for i in range(len(ex)):
-                            print("{0:<20s}{1:>20s}{2:>20d}".format(ex[i][1], str(ex[i][2]), ex[i][3]))
+                            print("{0:<5s}{1:<20s}{2:>20s}{3:>20d}".format(str(ex[i][0]), ex[i][1], str(ex[i][2]),
+                                                                           ex[i][3]))
                     elif op2 == 2:
                         while True:
                             try:
@@ -51,21 +49,113 @@ def menu_admin():
                                 px = float(input("Ingrese precio de la pizza: "))
                                 nx = int(input("Ingresar cantidad de pizzas que ofrecer: "))
 
+                                idx = len(extras) + 1
                                 print("\n{0:<20s}{1:>20s}{2:>20s}".format("Nombre", "Precio", "Cantidad"))
                                 print("{0:<20s}{1:>20s}{2:>20s}".format(nomx, str(px), str(nx)))
 
                                 ver = input("\n¿Seguro que deseas añadir esta pizza? (y/n): ").lower()
                                 if ver == "y":
-                                    actualizarcsv(csvextras, [nomx, px, nx])
+                                    actualizarcsv(csvextras, [idx, nomx, px, nx])
+                                    extras.append([idx, nomx, px, nx])
                                     break
                                 else:
                                     pass
                             except:
                                 print("Ingrese datos válidos.")
                     elif op2 == 3:
-                        print("eliminar")
+                        exFlag = True
+                        ix = None
+                        while exFlag:
+                            exx = input(
+                                "Ingrese el ID de la pizza que deseas eliminar (para cancelar,escribir n): ")
+                            if exx == "n":
+                                exFlag = False
+                                break
+                            if exx != "n":
+                                for i in range(len(extras)):
+                                    if exx == extras[i][0]:
+                                        ix = i
+                                        exFlag = False
+                                        break
+
+                                if exFlag:
+                                    print("No se ha encontrado al usuario. Inténtelo de nuevo.")
+                        if ix != None:
+                            print("\n{0:<20s}{1:>20s}{2:>20s}".format("Nombre", "Precio", "Cantidad"))
+                            print("{0:<20s}{1:>20s}{2:>20s}".format(extras[ix][1], extras[ix][2], extras[ix][3]))
+                            while True:
+                                ver = input("¿Seguro que deseas eliminar este extra? (y/n): ")
+                                if ver == "n":
+                                    break
+                                elif ver == "y":
+                                    eliminarfilacsv(csvextras, ix)
+                                    extras.pop(ix)
+                                    print("Extra elimimnado satisfactoriamente.")
+                                    break
                     elif op2 == 4:
-                        print("tu vieja")
+                        exFlag = True
+                        ix = None
+                        while exFlag:
+                            exx = input(
+                                "Ingrese el ID de la pizza que deseas modificar (para cancelar,escribir n): ")
+                            if exx == "n":
+                                exFlag = False
+                                break
+                            if exx != "n":
+                                for i in range(len(extras)):
+                                    if exx == extras[i][0]:
+                                        ix = i
+                                        exFlag = False
+                                        break
+
+                                if exFlag:
+                                    print("No se ha encontrado el extra. Inténtelo de nuevo.")
+                        if ix != None:
+                            print("\n{0:<20s}{1:>20s}{2:>20s}".format("Nombre", "Precio", "Cantidad"))
+                            print("{0:<20s}{1:>20s}{2:>20s}".format(extras[ix][1], extras[ix][2], extras[ix][3]))
+                            while True:
+                                op3 = int(input('''¿Qué deseas modificar?
+                                        1. Nombre
+                                        2. Precio
+                                        3. Cantidad
+                                        4. Salir
+
+                                        Selecciona tu opción: '''))
+                                if op3 == 1:
+                                    nomx = input("Ingrese nuevo nombre: ")
+                                    ver = input("¿Seguro que deseas cambiar el nombre del extra? (y/n): ")
+                                    if ver == "n":
+                                        break
+                                    elif ver == "y":
+                                        modificarvalorcsv(csvextras, nomx, ix, 1)
+                                        extras[ix][1] = nomx
+                                        print("Extra actualizado.")
+                                        break
+                                elif op3 == 2:
+                                    px = float(input("Ingrese nuevo precio: "))
+                                    ver = input("¿Seguro que deseas cambiar el precio del extra? (y/n): ")
+                                    if ver == "n":
+                                        break
+                                    elif ver == "y":
+                                        modificarvalorcsv(csvextras, px, ix, 2)
+                                        extras[ix][2] = px
+                                        print("Extra actualizado.")
+                                        break
+                                elif op3 == 3:
+                                    stockx = input("Ingrese nuevo stock: ")
+                                    ver = input("¿Seguro que deseas cambiar el cantidad del extra? (y/n): ")
+                                    if ver == "n":
+                                        break
+                                    elif ver == "y":
+                                        modificarvalorcsv(csvextras, stockx, ix, 3)
+                                        extras[ix][3] = stockx
+                                        print("Extra actualizado.")
+                                        break
+                                elif op3 == 4:
+                                    break
+                                else:
+                                    print("Ingrese una opción válida.")
+
                     elif op2 == 5:
                         break
                     else:
