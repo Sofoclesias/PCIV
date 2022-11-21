@@ -35,9 +35,8 @@ def lista_pedido(pedido_global):
 
 
 def realizarpedidos(yo, ix):
-    carritoprod = []
-    carritoext = []
-    precio = []
+    carritoprod, carritoext = [], []
+    precioprod, precioext = [], []
 
     muestraprod = copy.deepcopy(prod)
     muestraextra = copy.deepcopy(extras)
@@ -51,36 +50,41 @@ def realizarpedidos(yo, ix):
             print("Si desea salir, ingrese 0.\n")
             opcprod = int(input("¿Qué producto desea ordenar?: "))
             print("\n")
-            if 0 < opcprod <= len(prod):
-                if muestraprod[opcprod - 1][3] == 0:
-                    print("No hay unidades disponibles.")
-                if muestraprod[opcprod - 1][3] > 0:
-                    print("¿Cuántas unidades?")
-                    while True:
-                        try:
-                            cantidad = int(input("Ingrese la cantidad de pizzas: "))
-                            for i in muestraprod:
-                                if int(opcprod) == i[0]:
-                                    maximo = i[3]
-                            if 0 < cantidad <= maximo:
-                                break
-                        except:
-                            print("Ingrese una cantidad válida")
-                    for i in range(len(muestraprod)):
-                        if int(opcprod) == muestraprod[i][0]:
-                            muestraprod[i][3] -= cantidad
+            if 0 < opcprod:
+                inShop = True
+                for i in range(len(muestraprod)):
+                    if int(opcprod) == muestraprod[i][0]:
+                        ix = i
+                        inShop = False
+                        break
 
-                            inCar = True
-                            for j in range(len(carritoprod)):
-                                if int(opcprod) == int(carritoprod[j][0]):
-                                    carritoprod[j][3] += cantidad
-                                    precio[j] += round(muestraprod[i][2] * cantidad, 1)
-                                    inCar = False
+                if inShop:
+                    print("Ingrese un ID válido.")
+                else:
+                    if muestraprod[ix][3] == 0:
+                        print("No hay unidades disponibles.")
+                    else:
+                        print("¿Cuántas unidades?")
+                        while True:
+                            try:
+                                cantidad = int(input("Ingrese la cantidad de pizzas: "))
+                                if 0 < cantidad <= muestraprod[ix][3]:
+                                    break
+                            except:
+                                print("Ingrese una cantidad válida.")
+                        muestraprod[ix][3] -= cantidad
 
-                            if inCar:
-                                carritoprod.append(
-                                    [muestraprod[i][1], "{}".format(cantidad), "{}".format(muestraprod[i][2])])
-                                precio.append(round(muestraprod[i][2] * cantidad, 1))
+                        inCar = True
+                        for j in range(len(carritoprod)):
+                            if carritoprod[j][0] == muestraprod[ix][1]:
+                                carritoprod[j][1] = int(carritoprod[j][1]) + cantidad
+                                precioprod[j] = int(precioprod[j]) + round(int(muestraprod[ix][2]) * cantidad, 1)
+                                inCar = False
+
+                        if inCar:
+                            carritoprod.append(
+                                [muestraprod[ix][1], "{}".format(cantidad), "{}".format(muestraprod[ix][2])])
+                            precioprod.append(round(muestraprod[ix][2] * cantidad, 1))
             elif opcprod == 0:
                 break
             else:
@@ -89,39 +93,55 @@ def realizarpedidos(yo, ix):
             print("Ingrese una opcion válida\n")
 
     while True:
-        while True:
-            try:
-                print("Menú Extras".center(31, "*"))
-                print("{0:4}{3}{1:<19}{3}{2:^6}{4:^8}".format("ID", "Productos", "Precios", "|", "stock"))
-                for i in extras:
-                    print("{0:<4}{3}{1:<19}{3}{2:>6}{4:^8}".format(i[0], i[1], i[2], "|", i[3]))
-                print("Si desea salir, ingrese 0\n")
-                opcext = int(input("¿Qué extras desea añadir? "))
-                print("\n")
-                if 0 <= opcext <= len(extras):
-                    if opcext > 0:
+        try:
+            print("Menú Extras".center(31, "*"))
+            print("{0:4}{3}{1:<19}{3}{2:^6}{4:^8}".format("ID", "Productos", "Precios", "|", "stock"))
+            for i in muestraextra:
+                print("{0:<4}{3}{1:<19}{3}{2:>6}{4:^8}".format(i[0], i[1], i[2], "|", i[3]))
+            print("Si desea salir, ingrese 0\n")
+            opcext = int(input("¿Qué extras desea añadir? "))
+            print("\n")
+            if 0 < opcext:
+                inShop = True
+                for i in range(len(muestraextra)):
+                    if int(opcext) == muestraextra[i][0]:
+                        ix = i
+                        inShop = False
+                        break
+
+                if inShop:
+                    print("Ingrese un ID válido.")
+                else:
+                    if muestraextra[ix][3] == 0:
+                        print("No hay unidades disponibles.")
+                    else:
                         print("¿Cuántas unidades?")
                         while True:
                             try:
-                                cantidad = int(input("Ingrese la cantidad de pizzas: "))
-                                for i in extras:
-                                    if int(opcext) == i[0]:
-                                        maximo = i[3]
-                                if 0 < cantidad <= maximo:
+                                cantidad = int(input("Ingrese la cantidad de extras: "))
+                                if 0 < cantidad <= muestraextra[ix][3]:
                                     break
                             except:
-                                print("Ingrese una cantidad válida")
-                        for i in extras:
-                            if int(opcext) == i[0]:
-                                carritoext.append([i[1], "{}".format(cantidad), "{}".format(i[2])])
-                                precio.append(round(i[2] * cantidad, 1))
-                    break
-                else:
-                    print("Ingrese una opción válida\n")
-            except:
-                print("Ingrese una opcion válida\n")
-        if opcext == 0:
-            break
+                                print("Ingrese una cantidad válida.")
+                        muestraextra[ix][3] -= cantidad
+
+                        inCar = True
+                        for j in range(len(carritoext)):
+                            if carritoext[j][0] == muestraextra[ix][1]:
+                                carritoext[j][1] = int(carritoext[j][1]) + cantidad
+                                precioext[j] = int(precioext[j]) + round(int(muestraextra[ix][2]) * cantidad, 1)
+                                inCar = False
+
+                        if inCar:
+                            carritoext.append(
+                                [muestraextra[ix][1], "{}".format(cantidad), "{}".format(muestraextra[ix][2])])
+                            precioext.append(round(muestraextra[ix][2] * cantidad, 1))
+            elif opcext == 0:
+                break
+            else:
+                print("Ingrese una opción válida\n")
+        except:
+            print("Ingrese una opción válida.")
 
     ran = str(randint(1, 99999999))
     if len(ran) < 8:
@@ -132,9 +152,9 @@ def realizarpedidos(yo, ix):
     if len(carritoprod) == 0 and len(carritoext) == 0:
         return pedido_global
     else:
-        print("Precio total:", sum(precio))
+        print("Precio total:", sum(precioext) + sum(precioprod))
 
-        px = sum(precio)
+        px = sum(precioext) + sum(precioprod)
 
         if int(yo[8]) > 0:
             yo[8] = int(yo[8]) - 1
@@ -298,6 +318,9 @@ def menu_clientes(usux, contx):
                 elif opcion == 2:
                     listpedidos = realizarpedidos(yo, ix)
                     realizar_pago(listpedidos, yo, ix)
+
+                elif opcion == 3:
+                    break
 
                 else:
                     print("Escriba una opción válida.\n")
