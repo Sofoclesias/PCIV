@@ -1,6 +1,7 @@
 from lecturacsv import *
 
 def menu_admin():
+    global a
     while True:
         op0 = int(input('''
         1. Gestionar pedidos
@@ -14,9 +15,41 @@ def menu_admin():
             op1 = int(input('''
                     1. Ver pedidos por resolver
                     2. Borrar
+                    3. Salir
 
                     Selecciona tu opción: '''))
+            print('\n', '#' * 50)
+            if op1 == 1:
+                print("Pedidos por resolver")
+                zas = sorted(pedidos, key=lambda x: (x[3], x[4]), reverse=True)
+                print("{0:<10s}{1:<20s}{2:>30s}{3:>20s}{4:>20s}".format("ID", "Usuario", "Pizza", "Extras", "Monto"))
 
+                for i in range(len(zas)):
+                    a = []
+                    b = ""
+                    for j in range(len(zas[i][2])):
+                        if zas[i][2][j] == "|":
+                            a.append(b)
+                            b = ""
+                        else:
+                            b = b + zas[i][2][j]
+                    a.append(b)
+                    print("{0:<10s}{1:<20s}{2:>30s}{3:>20s}{4:>20s}".format(str(zas[i][0]), zas[i][1], str(a),
+                                                                            zas[i][3], str(zas[i][4])))
+            elif op1 == 2:
+                print("Ingrese el pedido a borrar")
+                o = input("")
+                zas = sorted(pedidos, key=lambda x: (x[2], x[3]), reverse=True)
+                for i in range(len(zas)):
+                    if zas[i][0] == o:
+                        eliminarfilacsv(csvpedidos, i)
+                        break
+                    else:
+                        print("Ingrese un pedido válido")
+            elif op1 == 3:
+                break
+            else:
+                print("Ingrese una opción válida")
         elif op0 == 2:
             while True:
                 op1 = int(input('''
