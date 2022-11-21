@@ -1,5 +1,6 @@
-
 from lecturacsv import *
+
+print(clientela)
 
 
 def menu_admin():
@@ -31,21 +32,41 @@ def menu_admin():
                                                     1. Visualizar extras
                                                     2. Añadir extras
                                                     3. Eliminar extras
-                                                    4. Salir
+                                                    4. Modificar extras
+                                                    5. Salir
 
                                                     Selecciona tu opción: '''))
 
                     if op2 == 1:
                         print("Visualizando todos los extras.")
-                        ex = sorted(extras, key=lambda x: (x[2], x[3]))
-                        print("{0:<20s}{1:>20s}{2:>20s}".format("DNI", "Nombres", "Apellidos"))
+                        ex = sorted(extras, key=lambda x: (x[2], x[3]), reverse=True)
+                        print("{0:<20s}{1:>20s}{2:>20s}".format("Nombre", "Precio", "Cantidad"))
+
+                        for i in range(len(ex)):
+                            print("{0:<20s}{1:>20s}{2:>20d}".format(ex[i][1], str(ex[i][2]), ex[i][3]))
                     elif op2 == 2:
-                        pass
+                        while True:
+                            try:
+                                nomx = input("Ingrese nombre de la pizza: ")
+                                px = float(input("Ingrese precio de la pizza: "))
+                                nx = int(input("Ingresar cantidad de pizzas que ofrecer: "))
 
+                                print("\n{0:<20s}{1:>20s}{2:>20s}".format("Nombre", "Precio", "Cantidad"))
+                                print("{0:<20s}{1:>20s}{2:>20s}".format(nomx, str(px), str(nx)))
+
+                                ver = input("\n¿Seguro que deseas añadir esta pizza? (y/n): ").lower()
+                                if ver == "y":
+                                    actualizarcsv(csvextras, [nomx, px, nx])
+                                    break
+                                else:
+                                    pass
+                            except:
+                                print("Ingrese datos válidos.")
                     elif op2 == 3:
-                        pass
-
+                        print("eliminar")
                     elif op2 == 4:
+                        print("tu vieja")
+                    elif op2 == 5:
                         break
                     else:
                         print("Ingrese una opción válida.")
@@ -141,9 +162,43 @@ def menu_admin():
                         else:
                             print(' Ingresa una opcion del menú')
                 elif op1 == 2:
-                    print("Cliente borrar")
+                    usuFlag = True
+                    ix = None
+                    while usuFlag:
+                        usux = input("Ingrese el nombre del usuario que deseas eliminar (para cancelar,escribir n): ")
+                        if usux == "n":
+                            usuFlag = False
+                            break
+                        if usux != "n":
+                            for i in range(len(clientela)):
+                                if usux == clientela[i][4]:
+                                    ix = i
+                                    usuFlag = False
+                                    break
 
-                    # Verificar que el cliente existe y preguntar si de verdad lo quieren borrar
+                            if usuFlag:
+                                print("No se ha encontrado al usuario. Inténtelo de nuevo.")
+                    if ix != None:
+                        print("{0:<20s}{1:<20s}{2:<20s}{3:<20s}{4:>20s}{5:>20s}".format("DNI", "Nombres",
+                                                                                        "Apellidos", "Usuario",
+                                                                                        "Número de pedidos",
+                                                                                        "Puntos de referidos"))
+                        print("{0:<20s}{1:<20s}{2:<20s}{3:<20s}{4:>20s}{5:>20s}".format(clientela[ix][0],
+                                                                                        clientela[ix][1],
+                                                                                        clientela[ix][2],
+                                                                                        clientela[ix][4],
+                                                                                        str(len(clientela[ix][7])),
+                                                                                        clientela[ix][8]))
+                        while True:
+                            ver = "¿Seguro que deseas eliminar este usuario? (y/n): "
+                            if ver == "n":
+                                break
+                            elif ver == "y":
+                                eliminarfilacsv(csvclientes, ix)
+                                clientela.pop(ix)
+                                print("Usuario elimimnado satisfactoriamente.")
+                                break
+
 
                 elif op1 == 3:
                     break

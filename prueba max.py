@@ -2,24 +2,16 @@
 from lecturacsv import csvclientes, clientela
 
 
-def modificarcsv(db, local_list, new_val, row, column):
+def eliminarfilacsv(db, row):
     with open(db, 'r') as file:
-        data = file.readlines()
+        l = file.readlines()
 
-    txt = ""
-    for i in range(len(local_list[0]) - 1):
-        if column == i:
-            txt += str(new_val) + ","
+    new_l = []
+    for i in range(len(l)):
+        if row == i:
+            pass
         else:
-            txt += str(local_list[row][i]) + ","
+            new_l.append(l[i])
 
-        print(txt)
-    txt += "\n"
-
-    data[row] = txt
-
-    with open(csvclientes, 'w') as file:
-        file.writelines(data)
-
-
-modificarcsv(csvclientes, clientela, 3, 0, 8)
+    with open(db, 'w') as file:
+        file.writelines(new_l)

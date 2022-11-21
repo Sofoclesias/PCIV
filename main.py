@@ -3,14 +3,11 @@ from administrativos import menu_admin
 import clientes as clic
 
 
-
 def login_cliente():
     print('  BIENVENIDO CLIENTE  '.center(50, '#'))
 
     flag = True
     while flag == True:
-        global usux
-        global contx
         usux = input('\n        Ingresa tu usuario: ')
         contx = input('     Ingresa tu contraseña: ')
 
@@ -48,9 +45,6 @@ def login_admin():
 
     menu_admin()
 
-
-usux = ""
-contx = ""
 
 print('  BIENVENIDO  '.center(50, '#'))
 while True:

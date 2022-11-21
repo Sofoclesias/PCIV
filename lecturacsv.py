@@ -2,24 +2,40 @@ import clases as cl
 import os
 from datetime import *
 
-def modificarcsv(db, local_list, new_val, row, column):
+
+def eliminarfilacsv(db, row):
     with open(db, 'r') as file:
-        data = file.readlines()
+        l = file.readlines()
+
+    new_l = []
+    for i in range(len(l)):
+        if row == i:
+            pass
+        else:
+            new_l.append(l[i])
+
+    with open(db, 'w') as file:
+        file.writelines(new_l)
+
+
+def modificarvalorcsv(db, new_val, row, column):
+    data = []
+    with open(db, 'r') as file:
+        l = file.readlines()
+        for linea in l:
+            data.append(linea.split(","))
 
     txt = ""
-    for i in range(len(local_list[0]) - 1):
+    for i in range(len(data[0]) - 1):
         if column == i:
             txt += str(new_val) + ","
         else:
-            txt += str(local_list[row][i]) + ","
-
-        print(txt)
+            txt += str(data[row][i]) + ","
     txt += "\n"
+    l[row] = txt
 
-    data[row] = txt
-
-    with open(csvclientes, 'w') as file:
-        file.writelines(data)
+    with open(db, 'w') as file:
+        file.writelines(l)
 
 def actualizarcsv(db, new):
     txt = ""
@@ -181,7 +197,7 @@ def register():
                     print("¡Cliente {} encontrado!".format(clientela[i][1]))
                     clientela[i][8] = int(clientela[i][8]) + 1
 
-                    modificarcsv(csvclientes, clientela, clientela[i][8], i, 8)
+                    modificarvalorcsv(csvclientes, clientela, clientela[i][8], i, 8)
 
                     flag = False
                     break

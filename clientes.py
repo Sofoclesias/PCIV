@@ -3,9 +3,9 @@ import lecturacsv as lec
 import Tarjetas as tarj
 import Pedidos as ped
 
-def menu_clientes(usux, contx):
+def menu_clientes(usuario, contraseña):
     for i in range(len(lec.clientela)):
-        if usux == lec.clientela[i][4] and contx == lec.clientela[i][5]:
+        if lec.usux == lec.clientela[i][4] and lec.contx == lec.clientela[i][5]:
             cliente_creacion = cl.Cliente(lec.clientela[i][0], lec.clientela[i][1], lec.clientela[i][2],
                                           lec.clientela[i][3], lec.clientela[i][4], lec.clientela[i][5],
                                           lec.clientela[i][6], lec.clientela[i][7], lec.clientela[i][8])
@@ -102,4 +102,4 @@ def menu_clientes(usux, contx):
                     cliente_creacion.setEdad(nuevo_dni)
 
         if opcion == 2:
-            ped.realizarpedidos(usux, contx)
+            ped.realizarpedidos()
