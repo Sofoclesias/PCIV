@@ -138,7 +138,7 @@ def register():
     while True:
         try:
             nomx = input('                   Ingrese sus nombres: ').title()
-            if tiene_numeros(nomx) == False:
+            if tiene_numeros(nomx) == False and len(nomx) != 0:
                 break
         except:
             pass
@@ -146,7 +146,7 @@ def register():
     while True:
         try:
             apex = input('                 Ingrese sus apellidos: ').title()
-            if tiene_numeros(apex) == False:
+            if tiene_numeros(apex) == False and len(apex) != 0:
                 break
         except:
             pass
