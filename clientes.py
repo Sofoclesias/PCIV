@@ -1,15 +1,15 @@
 import clases as cl
 import lecturacsv as lec
-import Tarjetas as tarj
 import Pedidos as ped
 
 def menu_clientes(usux, contx):
     for i in range(len(lec.clientela)):
         if usux == lec.clientela[i][4] and contx == lec.clientela[i][5]:
+            yo = lec.clientela[i]
+            ix = i
             cliente_creacion = cl.Cliente(lec.clientela[i][0], lec.clientela[i][1], lec.clientela[i][2],
                                           lec.clientela[i][3], lec.clientela[i][4], lec.clientela[i][5],
                                           lec.clientela[i][6], lec.clientela[i][7], lec.clientela[i][8])
-            ix = i
     while True:
         while True:
             try:
@@ -31,9 +31,8 @@ def menu_clientes(usux, contx):
             break
         if opcion == 1:
             while True:
-                print("{0:^10} {1:^10} {2:^10} {3:^10}".format("DNI", "NOMBRE", "APELLIDO", "EDAD"))
-                print("{0:^10} {1:^10} {2:^10} {3:^10}".format(lec.clientela[ix][0], lec.clientela[ix][1],
-                                                               lec.clientela[ix][2], lec.clientela[ix][3]))
+                print("{0:<10} {1:>20} {2:>20} {3:>20}".format("DNI", "NOMBRE", "APELLIDO", "EDAD"))
+                print("{0:<20} {1:>20} {2:>20} {3:>20}".format(yo[0], yo[1], yo[2], yo[3]))
 
                 while True:
                     try:
@@ -52,7 +51,7 @@ def menu_clientes(usux, contx):
                 if rpta == 6:
                     break
                 if rpta == 1:
-                    cliente_creacion.setnumero_de_cuenta(tarj.tarjetas())
+                    lec.modificarvalorcsv(lec.csvclientes, lec.refPago(), ix, 6)
                 if rpta == 2:
                     while True:
                         try:
@@ -63,7 +62,7 @@ def menu_clientes(usux, contx):
                                 print("escriba un dni válido")
                         except:
                             print("escriba un dni válido")
-                    cliente_creacion.setDNI(nuevo_dni)
+                    lec.modificarvalorcsv(lec.csvclientes, nuevo_dni, ix, 0)
                 if rpta == 3:
                     while True:
                         try:
@@ -74,7 +73,8 @@ def menu_clientes(usux, contx):
                                 print("escriba un nombre válido")
                         except:
                             print("escriba un nombre válido")
-                    cliente_creacion.setNombres(nuevo_nombre)
+                    lec.modificarvalorcsv(lec.csvclientes, nuevo_nombre, ix, 1)
+
                 if rpta == 4:
                     while True:
                         try:
@@ -85,20 +85,20 @@ def menu_clientes(usux, contx):
                                 print("escriba un apellido válido")
                         except:
                             print("escriba un nombre válido")
-                    cliente_creacion.setApellidos(nuevo_apellido)
+                    lec.modificarvalorcsv(lec.csvclientes, nuevo_apellido, ix, 2)
+
                 if rpta == 5:
                     while True:
                         try:
-                            nuevo_dni = int(input("ingrese la nueva edad: "))
-                            if nuevo_dni >= 18:
+                            nuevo_edad = int(input("ingrese la nueva edad: "))
+                            if nuevo_edad >= 18:
                                 break
                             else:
                                 print("escriba una edad válida")
                         except:
                             print("escriba una edad válida")
-                    cliente_creacion.setEdad(nuevo_dni)
+                    lec.modificarvalorcsv(lec.csvclientes, nuevo_edad, ix, 1)
 
         if opcion == 2:
-            cliente_creacion.setpedido(ped.realizarpedidos(usux, contx))
-            print("Realizar pago:")
-            ped.realizar_pago(cliente_creacion)
+            listpedidos = ped.realizarpedidos(yo, ix)
+            ped.realizar_pago(listpedidos, yo, ix)
