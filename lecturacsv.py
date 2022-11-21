@@ -119,18 +119,19 @@ def refPago():
             elif op == "n":
                 return infocard
 
+def tiene_numeros(string):
+    return any(char.isdigit() for char in string)
 
 def register():
-    def tiene_numeros(string):
-        return any(char.isdigit() for char in string)
 
     print('  BIENVENIDO NUEVO CLIENTE  '.center(50, '#'))
 
     ## DNI
     while True:
         try:
-            dnix = int(input('\n                        Ingrese su DNI: '))
-            break
+            dnix = input('\n                        Ingrese su DNI: ')
+            if int(dnix) > 0 and len(dnix) == 8:
+                break
         except:
             pass
     ## NOMBRES
@@ -153,7 +154,8 @@ def register():
     while True:
         try:
             edx = int(input('                       Ingrese su edad: '))
-            break
+            if edx >= 18:
+                break
         except:
             pass
     ## USUARIO
@@ -212,7 +214,6 @@ def register():
 
     actualizarcsv(csvclientes, [dnix, nomx, apex, edx, usux, pasx, meth, 0, 0])
 
-
 csvclientes = os.path.dirname(os.path.realpath(__file__)) + '\db\clientes.csv'
 csvadmin = os.path.dirname(os.path.realpath(__file__)) + '\db\ladmin.csv'
 csvpizzas = os.path.dirname(os.path.realpath(__file__)) + '\db\pizzas.csv'
@@ -224,8 +225,6 @@ clientela = excludecsvformat(copycsv(csvclientes))
 prod = excludecsvformat(copycsv(csvpizzas))
 extras = excludecsvformat(copycsv(csvextras))
 pedidos = excludecsvformat(copycsv(csvpedidos))
-
-print(pedidos)
 
 for i in range(len(prod)):
     prod[i] = [int(prod[i][0]), prod[i][1], float(prod[i][2]), int(prod[i][3])]
